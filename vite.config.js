@@ -12,6 +12,8 @@ export default defineConfig({
         sparePartsServices: resolve(__dirname, "pages/spare-parts-services.html"),
         lubricants: resolve(__dirname, "pages/lubricants.html"),
         contact: resolve(__dirname, "pages/contact.html"),
+        jawCrusher: resolve(__dirname, "pages/jaw-crusher.html"),
+        coneCrusher: resolve(__dirname, "pages/cone-crusher.html"),
       },
     },
   },

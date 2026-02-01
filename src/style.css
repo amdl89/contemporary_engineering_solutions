@@ -87,3 +87,8 @@
   --color-error-600: #8b2424;
   --color-error-700: #7f1d1d;
 }
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
