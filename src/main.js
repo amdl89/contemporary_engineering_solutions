@@ -438,6 +438,41 @@ function initPartsTabs() {
   });
 }
 
+// Scroll Animation with Intersection Observer
+function initScrollAnimations() {
+  // Check if browser supports Intersection Observer
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: make all animated elements visible
+    document.querySelectorAll('.fade-in-scroll, .slide-up-scroll, .slide-in-left, .slide-in-right').forEach(el => {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
+
+  // Create observer with subtle threshold
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully in view
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Optional: stop observing after animation triggers (performance optimization)
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animation classes
+  const animatedElements = document.querySelectorAll(
+    '.fade-in-scroll, .slide-up-scroll, .slide-in-left, .slide-in-right'
+  );
+
+  animatedElements.forEach(el => observer.observe(el));
+}
+
 // Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -447,4 +482,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductSlider();
   initContactForm();
   initPartsTabs();
+  initScrollAnimations();
 });

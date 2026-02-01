@@ -92,3 +92,70 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Subtle Scroll Animations */
+.fade-in-scroll {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in-scroll.is-visible {
+  opacity: 1;
+}
+
+.slide-up-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger animation delays for grid items - supports up to 20 items */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 500ms; }
+.stagger-children > *:nth-child(7) { transition-delay: 600ms; }
+.stagger-children > *:nth-child(8) { transition-delay: 700ms; }
+.stagger-children > *:nth-child(9) { transition-delay: 800ms; }
+.stagger-children > *:nth-child(n+10) { transition-delay: 900ms; }
+
+/* Reduced motion support - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-scroll,
+  .slide-up-scroll,
+  .slide-in-left,
+  .slide-in-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
