@@ -391,6 +391,53 @@ function initContactForm() {
   });
 }
 
+// Spare Parts Tabs Functionality
+function initPartsTabs() {
+  const tabsContainer = document.querySelector('[data-parts-tabs]');
+  if (!tabsContainer) return; // Only on spare parts page
+
+  const tabs = tabsContainer.querySelectorAll('[data-parts-tab]');
+  const partsGrid = document.querySelector('[data-parts-grid]');
+  const partCards = partsGrid.querySelectorAll('[data-category]');
+
+  // Function to filter parts by category
+  function filterParts(selectedCategory) {
+    partCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+
+      if (cardCategory === selectedCategory) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // Initialize: Show only Cone Crusher parts by default
+  filterParts('cone');
+
+  // Tab click handlers
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const selectedCategory = tab.getAttribute('data-parts-tab');
+
+      // Update active tab styling
+      tabs.forEach(t => {
+        if (t === tab) {
+          t.classList.remove('bg-surface', 'text-text', 'hover:bg-primary-50', 'border', 'border-border');
+          t.classList.add('bg-primary-600', 'text-white', 'shadow-md');
+        } else {
+          t.classList.remove('bg-primary-600', 'text-white', 'shadow-md');
+          t.classList.add('bg-surface', 'text-text', 'hover:bg-primary-50', 'border', 'border-border');
+        }
+      });
+
+      // Filter parts cards
+      filterParts(selectedCategory);
+    });
+  });
+}
+
 // Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -399,4 +446,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
   initProductSlider();
   initContactForm();
+  initPartsTabs();
 });
