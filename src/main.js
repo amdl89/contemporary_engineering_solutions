@@ -143,14 +143,18 @@ function initProductSlider() {
   }
 
   prevBtn.addEventListener('click', () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : Math.max(0, totalSlides - slidesToShow);
-    updateSlider();
+    if (currentIndex > 0) {
+      currentIndex = currentIndex - 1;
+      updateSlider();
+    }
   });
 
   nextBtn.addEventListener('click', () => {
     const maxIndex = Math.max(0, totalSlides - slidesToShow);
-    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
-    updateSlider();
+    if (currentIndex < maxIndex) {
+      currentIndex = currentIndex + 1;
+      updateSlider();
+    }
   });
 
   dots.forEach((dot) => {
@@ -163,7 +167,11 @@ function initProductSlider() {
   // Auto-play
   setInterval(() => {
     const maxIndex = Math.max(0, totalSlides - slidesToShow);
-    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+    if (currentIndex < maxIndex) {
+      currentIndex = currentIndex + 1;
+    } else {
+      currentIndex = 0; // Reset to beginning when auto-play reaches end
+    }
     updateSlider();
   }, 5000);
 
