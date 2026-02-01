@@ -1,0 +1,105 @@
+{
+  "plansDirectory": "claude-files/plans/current",
+  "permissions": {
+    "allow": [
+      "Bash(npm *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(bun *)",
+      "Bash(vite *)",
+      "Bash(npx vite *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(git worktree *)",
+      "Bash(cargo *)",
+      "Bash(go *)",
+      "Bash(python *)",
+      "Bash(pip *)",
+      "Bash(pytest *)",
+      "Bash(make *)",
+      "Bash(prettier *)",
+      "Bash(npx prettier *)",
+      "Bash(markdownlint *)",
+      "Bash(npx markdownlint *)",
+      "Edit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf /*)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(dd *)",
+      "Bash(mkfs *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/hooks/skill-activation.sh",
+            "description": "Suggests relevant skills based on prompt keywords"
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/planning-reminder.sh",
+            "description": "Reminds to create plan before implementation"
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/context-check.sh",
+            "description": "Monitors tool call count and suggests /update-context"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/hooks/planning-file-validator.sh",
+            "description": "Validates planning files are created in claude-files/plans/"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.claude/hooks/build-check.sh",
+            "description": "Runs build after code changes (if build script exists)"
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/markdown-format.sh",
+            "description": "Formats markdown files after changes (if formatter available)"
+          },
+          {
+            "type": "command",
+            "command": "./.claude/hooks/planning-file-update-reminder.sh",
+            "description": "Reminds to update planning files after code changes"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+# Project Assistant
+
+This is a **generic Claude Code configuration** designed to work in any repository.
+
+## First-Time Setup
+
+Run the `/setup-claude` command to analyze your repository and customize this folder for your specific project. The setup command will:
+
+- Detect your tech stack and project type
+- Create a customized CLAUDE.md with project-specific context
+- Generate domain-specific skills if needed
+- Configure build/test hooks appropriately
+
+## Available Commands
+
+### Core Workflow
+
+- `/plan` - Create a strategic plan (generates task_plan.md using planning-with-files pattern)
+- `/review` - Comprehensive code review with security and quality checks
+- `/update-context` - Save current state before running /clear (context management)
+
+### Pattern Guidance
+
+- `/guide` - Get pattern recommendations for your scenario (Vanilla/Planning-with-Files/SuperClaude)
+
+### Meta Commands
+
+- `/setup-claude` - Analyze repository and customize this .claude folder
+- `/create-skill` - Create a new custom skill for your project
+
+## Skills
+
+This folder includes generic skills that work across any tech stack:
+
+- **code-quality** - DRY, SOLID principles, error handling patterns
+- **testing** - Framework-agnostic test writing guidance
+- **security** - OWASP top 10, input validation, secure coding
+- **git-workflow** - Commit messages, branching strategies
+- **documentation** - Clear documentation and code comments
+- **pattern-guide** - Guidance on choosing and applying Claude Code patterns (NEW!)
+- **skill-creator** - Create new skills using Anthropic's pattern
+
+Skills auto-activate based on your prompts. The hooks will suggest relevant skills when detected.
+
+**New**: The `pattern-guide` skill helps you choose between Vanilla Claude Code, Planning-with-Files, and SuperClaude patterns based on your task complexity. It auto-activates when you ask about approaches or workflows.
+
+## Hooks
+
+This folder includes hooks that guide you to follow best practices:
+
+- **skill-activation** - Suggests relevant skills based on your prompt
+- **planning-reminder** - Reminds you to create a plan before implementing
+- **context-check** - Suggests /update-context after 50 tool calls
+- **build-check** - Runs build after edits (if build script exists)
+
+## Subagents
+
+Specialized agents for complex tasks:
+
+- **code-reviewer** - Systematic code review following comprehensive checklist
+- **setup-assistant** - Helps with initial repository setup and analysis
+- **pattern-guide** - Teaches you the patterns as you work
+
+## Coding Rules
+
+Until customized by `/setup-claude`, follow these universal principles:
+
+1. **Code Quality**
+   - Follow DRY (Don't Repeat Yourself)
+   - Apply SOLID principles
+   - Handle errors gracefully
+   - Write self-documenting code
+
+2. **Testing**
+   - Write tests for new features
+   - Maintain existing test coverage
+   - Test edge cases and error conditions
+
+3. **Security**
+   - Validate all inputs
+   - Never trust user data
+   - Follow OWASP guidelines
+   - Use parameterized queries
+
+4. **Git Workflow**
+   - Write clear, descriptive commit messages
+   - Keep commits atomic and focused
+   - Follow conventional commits format
+
+## Getting Started
+
+1. **First time?** Run `/setup-claude` to customize this folder
+2. **Not sure which pattern to use?** Run `/guide` to get recommendations (NEW!)
+3. **Starting new work?** Run `/plan` to create a strategic plan
+4. **Need review?** Run `/review` before committing
+5. **Long session?** Run `/update-context` every ~50 tool calls, then /clear
+
+### Pattern Guidance System (NEW!)
+
+Not sure whether to use Vanilla, Planning-with-Files, or SuperClaude patterns?
+
+**Three ways to get guidance:**
+
+1. **Quick recommendation**: Run `/guide` and describe your task
+2. **Auto-activation**: The `pattern-guide` skill suggests patterns as you work
+3. **Deep learning**: Ask to spawn the `pattern-guide` subagent for comprehensive teaching
+
+**Example**:
+
+- You: "I need to add authentication to my app"
+- Run: `/guide`
+- Get: Recommended pattern + step-by-step instructions
+
+## Learning Mode
+
+The hooks in this folder will guide you to follow patterns from:
+
+- Vanilla Claude Code (commands, skills, hooks, subagents)
+- Planning-with-files plugin (task_plan.md, findings.md, progress.md)
+- SuperClaude framework (agents, modes, advanced workflows)
+
+As you work, you'll receive suggestions to help you learn and apply these patterns effectively.
+
+---
+
+**Note**: This is a bootstrap configuration. Run `/setup-claude` to make it specific to your project.

@@ -1,0 +1,25 @@
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+
+# Planning files (session-specific, in claude-files/plans/current/)
+# Note: These are working files - commit important plans manually if needed
+# Archive folder is NOT ignored - you may want to commit completed plans
+**/claude-files/plans/current/
+
+# Legacy locations (if user hasn't migrated yet)
+**/claude-files/plans/task_plan.md
+**/claude-files/plans/findings.md
+**/claude-files/plans/progress.md
+task_plan.md
+findings.md
+progress.md
+implementation/
+
+# Session logs
+*.log
+
+# Runtime state files (created by hooks)
+.tool-call-counter
+settings.local.json

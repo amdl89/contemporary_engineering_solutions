@@ -1,0 +1,169 @@
+{
+  "code-quality": {
+    "description": "DRY, SOLID principles, and error handling patterns",
+    "promptTriggers": {
+      "keywords": [
+        "refactor",
+        "clean up",
+        "improve",
+        "quality",
+        "dry",
+        "solid",
+        "abstraction",
+        "duplicate",
+        "error handling"
+      ],
+      "filePatterns": [
+        "**/*.ts",
+        "**/*.js",
+        "**/*.tsx",
+        "**/*.jsx",
+        "**/*.py",
+        "**/*.go",
+        "**/*.rs",
+        "**/*.java"
+      ]
+    }
+  },
+  "testing": {
+    "description": "Framework-agnostic test writing guidance",
+    "promptTriggers": {
+      "keywords": [
+        "test",
+        "testing",
+        "spec",
+        "coverage",
+        "jest",
+        "vitest",
+        "pytest",
+        "unit test",
+        "integration test"
+      ],
+      "filePatterns": [
+        "**/*.test.*",
+        "**/*.spec.*",
+        "**/__tests__/**",
+        "**/tests/**",
+        "**/test/**"
+      ]
+    }
+  },
+  "security": {
+    "description": "OWASP top 10 and secure coding practices",
+    "promptTriggers": {
+      "keywords": [
+        "security",
+        "auth",
+        "authentication",
+        "authorization",
+        "password",
+        "token",
+        "encrypt",
+        "jwt",
+        "session",
+        "xss",
+        "sql injection",
+        "owasp"
+      ],
+      "filePatterns": [
+        "**/auth/**",
+        "**/security/**",
+        "**/middleware/auth*"
+      ]
+    }
+  },
+  "git-workflow": {
+    "description": "Git commit messages, branching, and workflow patterns",
+    "promptTriggers": {
+      "keywords": [
+        "commit",
+        "branch",
+        "merge",
+        "rebase",
+        "git",
+        "pull request",
+        "pr",
+        "push",
+        "checkout"
+      ],
+      "filePatterns": []
+    }
+  },
+  "documentation": {
+    "description": "Clear documentation and code comments",
+    "promptTriggers": {
+      "keywords": [
+        "document",
+        "docs",
+        "readme",
+        "comment",
+        "explain",
+        "jsdoc",
+        "docstring",
+        "api docs"
+      ],
+      "filePatterns": [
+        "**/*.md",
+        "**/docs/**",
+        "**/documentation/**",
+        "README.md"
+      ]
+    }
+  },
+  "skill-creator": {
+    "description": "META skill for creating well-structured skills",
+    "promptTriggers": {
+      "keywords": [
+        "create skill",
+        "new skill",
+        "skill pattern",
+        "codify pattern"
+      ],
+      "filePatterns": [
+        "**/.claude/skills/**"
+      ]
+    }
+  },
+  "pattern-guide": {
+    "description": "Guide for choosing and applying Claude Code patterns (Vanilla, Planning-with-Files, SuperClaude)",
+    "promptTriggers": {
+      "keywords": [
+        "how should i",
+        "approach",
+        "pattern",
+        "workflow",
+        "best practice",
+        "plan this",
+        "organize",
+        "getting complex",
+        "losing context",
+        "which pattern",
+        "how to proceed",
+        "what's the best way",
+        "should i plan",
+        "need guidance",
+        "recommend"
+      ],
+      "filePatterns": []
+    }
+  },
+  "git-worktree": {
+    "description": "Git worktree management for parallel feature branch development",
+    "promptTriggers": {
+      "keywords": [
+        "worktree",
+        "feature branch",
+        "switch branch",
+        "multiple branches",
+        "parallel development",
+        "create worktree",
+        "remove worktree",
+        "list worktrees",
+        "cleanup worktrees",
+        "pr review",
+        "hotfix"
+      ],
+      "filePatterns": []
+    }
+  }
+}
