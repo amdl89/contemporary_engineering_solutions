@@ -223,6 +223,174 @@ function initHeroSlider() {
   updateHeroSlider();
 }
 
+// Contact Form Validation
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return; // Form only exists on contact page
+
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const successMessage = document.getElementById('success-message');
+
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Validation rules
+  const validationRules = {
+    name: {
+      validate: (value) => {
+        if (!value || value.trim().length < 2) {
+          return 'Name must be at least 2 characters long';
+        }
+        if (value.trim().length > 100) {
+          return 'Name must be less than 100 characters';
+        }
+        return '';
+      }
+    },
+    email: {
+      validate: (value) => {
+        if (!value || value.trim().length === 0) {
+          return 'Email is required';
+        }
+        if (!emailRegex.test(value.trim())) {
+          return 'Please enter a valid email address';
+        }
+        return '';
+      }
+    },
+    message: {
+      validate: (value) => {
+        if (!value || value.trim().length < 10) {
+          return 'Message must be at least 10 characters long';
+        }
+        if (value.trim().length > 1000) {
+          return 'Message must be less than 1000 characters';
+        }
+        return '';
+      }
+    }
+  };
+
+  // Show error message
+  function showError(fieldName, message) {
+    const errorElement = document.querySelector(`[data-error="${fieldName}"]`);
+    const inputElement = document.getElementById(fieldName);
+
+    if (errorElement && inputElement) {
+      errorElement.textContent = message;
+      errorElement.classList.remove('hidden');
+      inputElement.classList.add('border-error-500');
+      inputElement.classList.remove('border-border');
+    }
+  }
+
+  // Clear error message
+  function clearError(fieldName) {
+    const errorElement = document.querySelector(`[data-error="${fieldName}"]`);
+    const inputElement = document.getElementById(fieldName);
+
+    if (errorElement && inputElement) {
+      errorElement.textContent = '';
+      errorElement.classList.add('hidden');
+      inputElement.classList.remove('border-error-500');
+      inputElement.classList.add('border-border');
+    }
+  }
+
+  // Validate single field
+  function validateField(fieldName, value) {
+    const rule = validationRules[fieldName];
+    if (!rule) return true;
+
+    const errorMessage = rule.validate(value);
+    if (errorMessage) {
+      showError(fieldName, errorMessage);
+      return false;
+    } else {
+      clearError(fieldName);
+      return true;
+    }
+  }
+
+  // Validate all fields
+  function validateForm() {
+    const isNameValid = validateField('name', nameInput.value);
+    const isEmailValid = validateField('email', emailInput.value);
+    const isMessageValid = validateField('message', messageInput.value);
+
+    return isNameValid && isEmailValid && isMessageValid;
+  }
+
+  // Real-time validation on blur
+  nameInput.addEventListener('blur', () => {
+    validateField('name', nameInput.value);
+  });
+
+  emailInput.addEventListener('blur', () => {
+    validateField('email', emailInput.value);
+  });
+
+  messageInput.addEventListener('blur', () => {
+    validateField('message', messageInput.value);
+  });
+
+  // Clear errors on input
+  nameInput.addEventListener('input', () => {
+    if (nameInput.value.trim().length >= 2) {
+      clearError('name');
+    }
+  });
+
+  emailInput.addEventListener('input', () => {
+    if (emailRegex.test(emailInput.value.trim())) {
+      clearError('email');
+    }
+  });
+
+  messageInput.addEventListener('input', () => {
+    if (messageInput.value.trim().length >= 10) {
+      clearError('message');
+    }
+  });
+
+  // Form submission
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Hide success message if visible
+    successMessage.classList.add('hidden');
+
+    // Validate all fields
+    if (!validateForm()) {
+      // Focus on first invalid field
+      if (!validateField('name', nameInput.value)) {
+        nameInput.focus();
+      } else if (!validateField('email', emailInput.value)) {
+        emailInput.focus();
+      } else if (!validateField('message', messageInput.value)) {
+        messageInput.focus();
+      }
+      return;
+    }
+
+    // Form is valid - show success message
+    successMessage.classList.remove('hidden');
+
+    // Scroll to success message
+    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Clear form
+    form.reset();
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      successMessage.classList.add('hidden');
+    }, 5000);
+  });
+}
+
 // Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -230,4 +398,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavState();
   initHeroSlider();
   initProductSlider();
+  initContactForm();
 });
