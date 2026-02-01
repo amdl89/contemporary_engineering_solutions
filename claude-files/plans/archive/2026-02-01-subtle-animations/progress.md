@@ -140,10 +140,74 @@
 
 ---
 
+## Post-Implementation Refinements
+
+### Iteration 1: Increase Prominence
+**User Feedback**: "maybe the animations are too subtle"
+
+**Changes Made**:
+- Increased movement distance: 20px → 50px
+- Changed easing: ease-out → cubic-bezier(0.34, 1.56, 0.64, 1) (bounce effect)
+- Result: More eye-catching with spring/bounce personality
+
+### Iteration 2: Fix Missing Card Animations
+**User Feedback**: "i dont think you are adding animations to page speific cards"
+
+**Issue Found**: Animation classes were on grid containers (stagger-children) but not on individual card elements
+
+**Cards Fixed**:
+- Jaw Crusher: 6 feature cards
+- Cone Crusher: 6 feature cards
+- Lubricants: 7 large product cards (including cone crusher lubricants)
+- Spare Parts: 8 service cards
+- Homepage: 6 feature cards
+- About: 2 cards
+- Contact: 3 cards
+
+**Patterns Updated**:
+- `bg-surface rounded-2xl p-6 shadow-lg` → added `slide-up-scroll`
+- `bg-surface border border-border rounded-xl p-8` → added `slide-up-scroll`
+- `bg-surface border border-border rounded-2xl shadow-lg` → added `slide-up-scroll`
+- `flex items-start gap-4 bg-surface p-6 rounded-lg` → added `slide-up-scroll`
+
+### Iteration 3: Dial Back to Balanced Subtlety
+**User Feedback**: "ok make tha animations a little more subtle"
+
+**Final Settings**:
+- Movement distance: 30px (middle ground between original 20px and prominent 50px)
+- Easing: ease-out (smooth, professional, no bounce)
+- Result: Noticeable but refined, professional polish
+
+---
+
+## Final Metrics
+
+### Animation Settings
+- **Movement Distance**: 30px
+- **Duration**: 600ms
+- **Easing**: ease-out (smooth deceleration)
+- **Stagger Delay**: 100ms per item
+- **Threshold**: 10% visibility
+- **Root Margin**: -50px (early trigger)
+
+### Code Impact
+- **Bundle Size**: 0kb (pure CSS)
+- **JavaScript**: ~30 lines (Intersection Observer)
+- **CSS**: ~60 lines (animation classes)
+- **HTML Changes**: 38+ cards across 7 pages
+
+### Browser Support
+- Modern browsers: IntersectionObserver API
+- Older browsers: Graceful fallback (elements visible immediately)
+- Accessibility: prefers-reduced-motion respected
+
+---
+
 ## Current Status
 
 - **Phase**: 8/8 Complete ✅
-- **Current Task**: All animations implemented
-- **Next Task**: Create final commit
+- **Refinements**: 3 iterations based on user feedback
+- **Current Task**: All animations implemented and tuned
+- **Next Task**: Final commit
 - **Blockers**: None
-- **Overall Status**: Implementation complete, ready for commit
+- **Overall Status**: Complete and production-ready
