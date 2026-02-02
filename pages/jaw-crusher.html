@@ -371,96 +371,86 @@
         </div>
       </div>
     </section>
-    <!-- Product Showcase -->
-    <section class="py-16 sm:py-20 bg-background">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto fade-in-scroll">
-          <svg
-            viewBox="0 0 800 600"
-            class="w-full h-auto"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <!-- Base/Frame -->
-            <rect
-              x="100"
-              y="400"
-              width="600"
-              height="150"
-              fill="#3a2366"
-              stroke="#1a102e"
-              stroke-width="4"
+
+    <!-- Product Image Slider -->
+    <section
+      class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden bg-surface"
+    >
+      <div class="absolute inset-0">
+        <div
+          class="flex transition-transform duration-700 ease-in-out h-full"
+          data-product-slider
+        >
+          <!-- Slide 1 -->
+          <div class="w-full flex-shrink-0 h-full relative">
+            <img
+              src="/images/jaw_crusher_1.jpg"
+              alt="Jaw Crusher - Front view showing feed opening and crushing chamber"
+              class="w-full h-full object-contain bg-surface"
             />
-
-            <!-- Fixed Jaw (Left) -->
-            <path
-              d="M 150 200 L 150 400 L 200 400 L 250 200 Z"
-              fill="#6b4a9e"
-              stroke="#3a2366"
-              stroke-width="3"
+            <div class="absolute bottom-4 left-0 right-0 px-6">
+              <p
+                class="text-white text-xl font-semibold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              >
+                12×24 Jaw Crusher
+              </p>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="w-full flex-shrink-0 h-full relative">
+            <img
+              src="/images/jaw_crusher_2.jpg"
+              alt="Jaw Crusher - Side view showing robust frame construction"
+              class="w-full h-full object-contain bg-surface"
             />
-
-            <!-- Moving Jaw (Right) -->
-            <path
-              d="M 550 200 L 500 400 L 650 400 L 650 200 Z"
-              fill="#8a6bbf"
-              stroke="#4b2e83"
-              stroke-width="3"
-            />
-
-            <!-- Feed Material (Top) -->
-            <circle cx="350" cy="150" r="30" fill="#c9a227" />
-            <circle cx="400" cy="140" r="35" fill="#d9b63e" />
-            <circle cx="450" cy="160" r="28" fill="#c9a227" />
-
-            <!-- Crushed Output (Bottom) -->
-            <circle cx="320" cy="510" r="15" fill="#e8d078" />
-            <circle cx="360" cy="520" r="12" fill="#d9b63e" />
-            <circle cx="400" cy="515" r="18" fill="#c9a227" />
-            <circle cx="440" cy="522" r="14" fill="#e8d078" />
-            <circle cx="480" cy="518" r="16" fill="#d9b63e" />
-
-            <!-- Crushing Chamber Lines -->
-            <line
-              x1="250"
-              y1="200"
-              x2="400"
-              y2="300"
-              stroke="#3a2366"
-              stroke-width="2"
-              stroke-dasharray="5,5"
-            />
-            <line
-              x1="550"
-              y1="200"
-              x2="400"
-              y2="300"
-              stroke="#3a2366"
-              stroke-width="2"
-              stroke-dasharray="5,5"
-            />
-
-            <!-- Arrow showing compression -->
-            <path
-              d="M 700 300 L 670 300 L 680 290 M 670 300 L 680 310"
-              stroke="#c9a227"
-              stroke-width="3"
-              fill="none"
-            />
-
-            <!-- Labels -->
-            <text
-              x="400"
-              y="580"
-              text-anchor="middle"
-              fill="#3a2366"
-              font-size="24"
-              font-weight="bold"
-            >
-              JAW CRUSHER
-            </text>
-          </svg>
+            <div class="absolute bottom-4 left-0 right-0 px-6">
+              <p
+                class="text-white text-xl font-semibold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              >
+                10 tph portable jaw crusher
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Navigation Arrows -->
+      <button
+        data-product-prev
+        class="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-primary-600 text-text hover:text-white rounded-full p-3 shadow-lg transition-all duration-200 z-10"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <button
+        data-product-next
+        class="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-primary-600 text-text hover:text-white rounded-full p-3 shadow-lg transition-all duration-200 z-10"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </section>
 
     <!-- Overview Section -->
@@ -511,7 +501,9 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children"
+        >
           <!-- Deep Crushing Chamber -->
           <div class="bg-surface rounded-2xl p-6 shadow-lg slide-up-scroll">
             <div
@@ -795,7 +787,9 @@
 
     <!-- CTA Section -->
     <section class="py-16 sm:py-20 bg-primary-600 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center slide-up-scroll">
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center slide-up-scroll"
+      >
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">
           Get the Right Crusher for Your Operation
         </h2>

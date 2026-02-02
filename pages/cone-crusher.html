@@ -371,125 +371,87 @@
         </div>
       </div>
     </section>
-    <!-- Product Showcase -->
-    <section class="py-16 sm:py-20 bg-background">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto fade-in-scroll">
-          <svg
-            viewBox="0 0 800 600"
-            class="w-full h-auto"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <!-- Outer Bowl/Concave (Stationary) -->
-            <ellipse
-              cx="400"
-              cy="500"
-              rx="280"
-              ry="80"
-              fill="#3a9e9e"
-              stroke="#2a7b7b"
-              stroke-width="4"
-            />
-            <path
-              d="M 120 500 Q 120 300, 400 150 Q 680 300, 680 500"
-              fill="none"
-              stroke="#2a7b7b"
-              stroke-width="6"
-            />
-            <path
-              d="M 140 490 Q 140 310, 400 170 Q 660 310, 660 490"
-              fill="#4fadad"
-              opacity="0.6"
-            />
 
-            <!-- Inner Mantle (Rotating) -->
-            <ellipse
-              cx="400"
-              cy="480"
-              rx="200"
-              ry="50"
-              fill="#6b4a9e"
-              stroke="#4b2e83"
-              stroke-width="4"
+    <!-- Product Image Slider -->
+    <section class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden bg-surface">
+      <div class="absolute inset-0">
+        <div
+          class="flex transition-transform duration-700 ease-in-out h-full"
+          data-product-slider
+        >
+          <!-- Slide 1 -->
+          <div class="w-full flex-shrink-0 h-full relative">
+            <img
+              src="/images/cone_crusher_1.jpg"
+              alt="Cone Crusher - Complete unit showing main assembly and components"
+              class="w-full h-full object-contain bg-surface"
             />
-            <path
-              d="M 200 480 Q 200 300, 400 200 Q 600 300, 600 480"
-              fill="#8a6bbf"
-              stroke="#4b2e83"
-              stroke-width="4"
+            <div class="absolute bottom-4 left-0 right-0 px-6">
+              <p class="text-white text-xl font-semibold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Rotor Impactor Crusher</p>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="w-full flex-shrink-0 h-full relative">
+            <img
+              src="/images/cone_crusher_2.jpg"
+              alt="Cone Crusher - Crushing chamber and mantle assembly detail"
+              class="w-full h-full object-contain bg-surface"
             />
-
-            <!-- Feed Material (Top) -->
-            <circle cx="350" cy="140" r="25" fill="#c9a227" />
-            <circle cx="400" cy="120" r="30" fill="#d9b63e" />
-            <circle cx="450" cy="150" r="22" fill="#c9a227" />
-            <circle cx="390" cy="170" r="20" fill="#e8d078" />
-
-            <!-- Crushed Output (Bottom - finer particles) -->
-            <circle cx="320" cy="530" r="8" fill="#8fcbcb" />
-            <circle cx="340" cy="535" r="6" fill="#4fadad" />
-            <circle cx="360" cy="532" r="7" fill="#8fcbcb" />
-            <circle cx="380" cy="538" r="9" fill="#4fadad" />
-            <circle cx="420" cy="536" r="7" fill="#8fcbcb" />
-            <circle cx="440" cy="533" r="8" fill="#4fadad" />
-            <circle cx="460" cy="537" r="6" fill="#8fcbcb" />
-            <circle cx="480" cy="534" r="9" fill="#4fadad" />
-
-            <!-- Gyrating Motion Arrows -->
-            <path
-              d="M 420 350 Q 450 330, 470 350"
-              stroke="#3a9e9e"
-              stroke-width="3"
-              fill="none"
-              marker-end="url(#arrowhead)"
+            <div class="absolute bottom-4 left-0 right-0 px-6">
+              <p class="text-white text-xl font-semibold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">VSI sand making crusher</p>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="w-full flex-shrink-0 h-full relative">
+            <img
+              src="/images/cone_crusher_3.jpg"
+              alt="Cone Crusher - Hydraulic adjustment system and control panel"
+              class="w-full h-full object-contain bg-surface"
             />
-            <path
-              d="M 380 380 Q 350 360, 330 380"
-              stroke="#3a9e9e"
-              stroke-width="3"
-              fill="none"
-              marker-end="url(#arrowhead)"
-            />
-
-            <!-- Arrow Definition -->
-            <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="10"
-                markerHeight="10"
-                refX="9"
-                refY="3"
-                orient="auto"
-              >
-                <polygon points="0 0, 10 3, 0 6" fill="#3a9e9e" />
-              </marker>
-            </defs>
-
-            <!-- Central Shaft -->
-            <rect
-              x="385"
-              y="200"
-              width="30"
-              height="250"
-              fill="#2a7b7b"
-              stroke="#1e5959"
-              stroke-width="2"
-            />
-
-            <!-- Labels -->
-            <text
-              x="400"
-              y="580"
-              text-anchor="middle"
-              fill="#2a7b7b"
-              font-size="24"
-              font-weight="bold"
-            >
-              CONE CRUSHER
-            </text>
-          </svg>
+            <div class="absolute bottom-4 left-0 right-0 px-6">
+              <p class="text-white text-xl font-semibold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Cone Crusher</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Navigation Arrows -->
+      <button
+        data-product-prev
+        class="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-primary-600 text-text hover:text-white rounded-full p-3 shadow-lg transition-all duration-200 z-10"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <button
+        data-product-next
+        class="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-primary-600 text-text hover:text-white rounded-full p-3 shadow-lg transition-all duration-200 z-10"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </section>
 
     <!-- Overview Section -->

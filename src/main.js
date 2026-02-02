@@ -454,6 +454,41 @@ function initScrollAnimations() {
   animatedElements.forEach(el => observer.observe(el));
 }
 
+// Product Page Slider functionality (for jaw-crusher and cone-crusher pages)
+function initProductPageSlider() {
+  const slider = document.querySelector('[data-product-slider]');
+  const prevBtn = document.querySelector('[data-product-prev]');
+  const nextBtn = document.querySelector('[data-product-next]');
+
+  if (!slider || !prevBtn || !nextBtn) return;
+
+  let currentIndex = 0;
+  const slides = slider.children.length;
+
+  function updateProductSlider() {
+    const translateX = -(currentIndex * 100);
+    slider.style.transform = `translateX(${translateX}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : slides - 1;
+    updateProductSlider();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = currentIndex < slides - 1 ? currentIndex + 1 : 0;
+    updateProductSlider();
+  });
+
+  // Auto-play
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides;
+    updateProductSlider();
+  }, 4000);
+
+  updateProductSlider();
+}
+
 // Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -461,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavState();
   initHeroSlider();
   initProductSlider();
+  initProductPageSlider();
   initContactForm();
   initPartsTabs();
   initScrollAnimations();
