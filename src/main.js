@@ -184,9 +184,8 @@ function initProductSlider() {
 // Hero Slider functionality
 function initHeroSlider() {
   const slider = document.querySelector('[data-hero-slider]');
-  const dots = document.querySelectorAll('[data-hero-dot]');
 
-  if (!slider || dots.length === 0) return;
+  if (!slider) return;
 
   let currentIndex = 0;
   const totalSlides = 3;
@@ -194,25 +193,7 @@ function initHeroSlider() {
   function updateHeroSlider() {
     const translateX = -(currentIndex * 100);
     slider.style.transform = `translateX(${translateX}%)`;
-
-    // Update dots
-    dots.forEach((dot, index) => {
-      if (index === currentIndex) {
-        dot.classList.remove('bg-white/50');
-        dot.classList.add('bg-white');
-      } else {
-        dot.classList.remove('bg-white');
-        dot.classList.add('bg-white/50');
-      }
-    });
   }
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      currentIndex = parseInt(dot.getAttribute('data-hero-dot'));
-      updateHeroSlider();
-    });
-  });
 
   // Auto-play
   setInterval(() => {
