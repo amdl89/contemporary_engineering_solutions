@@ -214,6 +214,38 @@ function initContactForm() {
   const messageInput = document.getElementById('message');
   const successMessage = document.getElementById('success-message');
 
+  // Query Param Pre-fill Logic
+  // Contact message templates based on source parameter
+  const contactMessages = {
+    'jaw-crusher': 'I\'m interested in learning more about your Jaw Crusher products.',
+    'cone-crusher': 'I\'m interested in learning more about your Cone Crusher products.',
+    'about': 'I would like to know more about Contemporary Engineering Solutions and your services.',
+    'lubricant-lithium-grease': 'I would like a quote for Lithium-Complex EP Grease for my crusher equipment.',
+    'lubricant-gear-oil': 'I\'m interested in purchasing Heavy-Duty Gear Oil for my jaw crusher gearbox.',
+    'lubricant-iso100': 'I need Circulating Oil ISO 100 for my cone crusher. Please provide pricing and availability.',
+    'lubricant-iso150': 'I would like to order Circulating Oil ISO 150 for heavy-duty cone crusher operations.',
+    'lubricant-gap-control': 'I\'m interested in Gap Control Grease (MoS2) for my cone crusher. Please send me details and pricing.',
+    'lubricant-high-temp': 'I need High-Temperature EP Grease for my crusher equipment. Please provide a quote.',
+    'lubricant-impact': 'I would like information and pricing for Heavy-Duty Impact Grease for my crusher bearings.',
+    'spare-concave': 'I need to order a replacement Concave for my cone crusher. Please provide pricing and lead time.',
+    'spare-mantle': 'I\'m looking for a replacement Mantle for my cone crusher. Please send me specifications and pricing.',
+    'spare-jaw-plates': 'I need replacement Jaw Plates for my jaw crusher. Please provide availability and quote.',
+    'spare-vsi': 'I\'m interested in VSI Parts for my vertical shaft impact crusher. Please provide specifications and pricing.',
+    'spare-wire-mesh': 'I need Wire Meshes for screening equipment. Please send me available sizes and pricing.'
+  };
+
+  // Parse URL query parameter for message pre-fill
+  const urlParams = new URLSearchParams(window.location.search);
+  const source = urlParams.get('source');
+
+  if (source && messageInput && !messageInput.value.trim()) {
+    // Only pre-fill if message is empty (user hasn't typed anything)
+    if (contactMessages[source]) {
+      messageInput.value = contactMessages[source];
+    }
+    // If source doesn't exist in messages object, leave message empty (default behavior)
+  }
+
   // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
