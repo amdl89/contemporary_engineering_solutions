@@ -217,9 +217,27 @@ function initContactForm() {
   // Query Param Pre-fill Logic
   // Contact message templates based on source parameter
   const contactMessages = {
+    // Product pages
     'jaw-crusher': 'I\'m interested in learning more about your Jaw Crusher products.',
     'cone-crusher': 'I\'m interested in learning more about your Cone Crusher products.',
+    'vibrating-screen': 'I would like information about your Vibrating Screen products. Please send specifications and pricing.',
+    'vertical-shaft-impactor': 'I\'m interested in your Vertical Shaft Impactor (VSI) crushers. Please provide details and pricing.',
+    'vsi-crusher': 'I\'m interested in your Vertical Shaft Impactor (VSI) crushers. Please provide details and pricing.',
+    'horizontal-shaft-impactor': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
+    'hsi-crusher': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
+    'roll-crusher': 'I\'m interested in your Roll Crusher products. Please provide specifications and pricing.',
+    'spiral-classifier': 'I would like information about your Spiral Classifier equipment. Please send details and pricing.',
+    'screw-classifier': 'I\'m interested in your Screw Classifier products. Please provide specifications and pricing.',
+    'hydro-cyclone': 'I would like information about your Hydro Cyclone equipment. Please send specifications and pricing.',
     'about': 'I would like to know more about Contemporary Engineering Solutions and your services.',
+    // Mosil Lubricant Products
+    'mosil-gm-00-sp2': 'I would like a quote for Mosil GM-00(SP2) multi-purpose grease. Please provide pricing and availability.',
+    'mosil-gear-lube-sp-150e': 'I\'m interested in Mosil Gear Lube SP-150e for my cone crusher gearbox. Please send specifications and pricing.',
+    'mosil-gear-lube-sp-220e': 'I need Mosil Gear Lube SP-220e heavy-duty gear oil for my cone crusher. Please provide a quote.',
+    'mosil-brb-400': 'I would like information and pricing for Mosil BRB 400 specialty bearing oil for cone crusher applications.',
+    'mosil-ml-110-premium': 'I\'m interested in Mosil ML-110 Premium for my impact crusher. Please provide specifications and pricing.',
+    'mosil-gear-lube-sp-320e': 'I need Mosil Gear Lube SP-320e for my conveyor gearbox. Please send me specifications and a quote.',
+    // Legacy lubricant references (keeping for backward compatibility)
     'lubricant-lithium-grease': 'I would like a quote for Lithium-Complex EP Grease for my crusher equipment.',
     'lubricant-gear-oil': 'I\'m interested in purchasing Heavy-Duty Gear Oil for my jaw crusher gearbox.',
     'lubricant-iso100': 'I need Circulating Oil ISO 100 for my cone crusher. Please provide pricing and availability.',
@@ -236,11 +254,15 @@ function initContactForm() {
     'lubricant-cement-inquiry': 'I\'m interested in learning about your cement industry lubricants. Please contact me with more information.',
     'lubricant-food-pharma-inquiry': 'I would like information about food-grade and pharmaceutical lubricants. Please get in touch.',
     'lubricant-steel-inquiry': 'I\'m interested in high-temperature lubricants for steel production equipment. Please provide more details.',
+    // Spare parts
     'spare-concave': 'I need to order a replacement Concave for my cone crusher. Please provide pricing and lead time.',
     'spare-mantle': 'I\'m looking for a replacement Mantle for my cone crusher. Please send me specifications and pricing.',
     'spare-jaw-plates': 'I need replacement Jaw Plates for my jaw crusher. Please provide availability and quote.',
     'spare-vsi': 'I\'m interested in VSI Parts for my vertical shaft impact crusher. Please provide specifications and pricing.',
-    'spare-wire-mesh': 'I need Wire Meshes for screening equipment. Please send me available sizes and pricing.'
+    'spare-wire-mesh': 'I need Wire Meshes for screening equipment. Please send me available sizes and pricing.',
+    'spare-plate-mesh': 'I\'m interested in Plate Mesh products for my screening equipment. Please provide specifications and pricing.',
+    'spare-clamping-fasteners': 'I need Clamping Fasteners for my crusher equipment. Please send me available options and pricing.',
+    'spare-rubber-bedding': 'I would like to order Rubber Bedding for my crusher. Please provide specifications and quote.'
   };
 
   // Parse URL query parameter for message pre-fill
@@ -427,16 +449,23 @@ function initPartsTabs() {
     partCards.forEach(card => {
       const cardCategory = card.getAttribute('data-category');
 
-      if (cardCategory === selectedCategory) {
+      if (selectedCategory === 'all') {
+        // Show all cards when "all" is selected
         card.classList.remove('hidden');
+        card.style.display = '';
+      } else if (cardCategory === selectedCategory) {
+        // Show cards matching the selected category
+        card.classList.remove('hidden');
+        card.style.display = '';
       } else {
+        // Hide cards that don't match
         card.classList.add('hidden');
       }
     });
   }
 
-  // Initialize: Show only Cone Crusher parts by default
-  filterParts('cone');
+  // Initialize: Show all parts by default
+  filterParts('all');
 
   // Tab click handlers
   tabs.forEach(tab => {
@@ -530,34 +559,31 @@ function initProductPageSlider() {
   updateProductSlider();
 }
 
-// Lubricants Industry Tabs Functionality
-function initLubricantsTabs() {
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+// Lubricants Equipment Filter Functionality
+function initLubricantsFilter() {
+  const filterButtons = document.querySelectorAll('[data-lubricant-filter]');
+  const productCards = document.querySelectorAll('[data-lubricant-card]');
 
-  if (tabButtons.length === 0 || tabPanels.length === 0) return; // Only on lubricants page
+  if (filterButtons.length === 0 || productCards.length === 0) return; // Only on lubricants page
 
-  // Function to switch tabs
-  function switchTab(tabName) {
-    // Hide all panels
-    tabPanels.forEach(panel => {
-      panel.classList.add('hidden');
-      panel.setAttribute('aria-hidden', 'true');
+  // Function to filter products by equipment type
+  function filterProducts(equipmentType) {
+    productCards.forEach(card => {
+      const cardEquipment = card.getAttribute('data-equipment').split(' ');
+
+      if (equipmentType === 'all' || cardEquipment.includes(equipmentType)) {
+        card.classList.remove('hidden');
+        // Add fade-in animation
+        card.style.animation = 'fadeIn 0.3s ease-in';
+      } else {
+        card.classList.add('hidden');
+      }
     });
 
-    // Show selected panel
-    const selectedPanel = document.querySelector(`[data-panel="${tabName}"]`);
-    if (selectedPanel) {
-      selectedPanel.classList.remove('hidden');
-      selectedPanel.setAttribute('aria-hidden', 'false');
-    }
-
-    // Update button states
-    tabButtons.forEach(button => {
-      const buttonTab = button.getAttribute('data-tab');
-      const isActive = buttonTab === tabName;
-
-      button.setAttribute('aria-selected', isActive);
+    // Update filter button states
+    filterButtons.forEach(button => {
+      const buttonFilter = button.getAttribute('data-lubricant-filter');
+      const isActive = buttonFilter === equipmentType;
 
       if (isActive) {
         button.classList.remove('bg-surface', 'text-text', 'hover:bg-primary-50', 'border', 'border-border');
@@ -569,42 +595,16 @@ function initLubricantsTabs() {
     });
   }
 
-  // Tab button click handlers
-  tabButtons.forEach(button => {
+  // Filter button click handlers
+  filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const tabName = button.getAttribute('data-tab');
-      switchTab(tabName);
+      const equipmentType = button.getAttribute('data-lubricant-filter');
+      filterProducts(equipmentType);
     });
   });
 
-  // Keyboard navigation (arrow keys)
-  tabButtons.forEach((button, index) => {
-    button.addEventListener('keydown', (e) => {
-      let newIndex = index;
-
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        newIndex = index > 0 ? index - 1 : tabButtons.length - 1;
-      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        newIndex = index < tabButtons.length - 1 ? index + 1 : 0;
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        newIndex = 0;
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        newIndex = tabButtons.length - 1;
-      }
-
-      if (newIndex !== index) {
-        tabButtons[newIndex].focus();
-        tabButtons[newIndex].click();
-      }
-    });
-  });
-
-  // Initialize first tab as active
-  switchTab('crusher-construction');
+  // Initialize with "All" filter active
+  filterProducts('all');
 }
 
 // Initialize all functionality when DOM is ready
@@ -617,6 +617,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductPageSlider();
   initContactForm();
   initPartsTabs();
-  initLubricantsTabs();
+  initLubricantsFilter();
   initScrollAnimations();
 });

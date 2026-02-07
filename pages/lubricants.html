@@ -52,7 +52,7 @@
           <!-- Phone (Center) -->
           <div class="flex justify-center">
             <a
-              href="tel:+9779842416857"
+              href="tel:+9779705502293"
               class="flex items-center gap-2 hover:text-accent-gold-300 transition-colors"
             >
               <svg
@@ -68,7 +68,7 @@
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span>+977-9842416857</span>
+              <span>+977-9705502293</span>
             </a>
           </div>
 
@@ -397,32 +397,16 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-4xl mx-auto">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text mb-6">
-            Industrial Lubricants for Every Industry
+            Mosil Industrial Lubricants
           </h1>
           <p class="text-xl sm:text-2xl text-text-muted mb-4">
-            Extend equipment life and reduce downtime with premium-grade
-            lubricants for crusher, cement, food processing, and steel
-            industries
+            Premium-grade lubricants for crushing and screening equipment.
+            Extend equipment life and reduce downtime with specialized
+            formulations.
           </p>
           <div
             class="flex flex-wrap justify-center gap-4 text-base sm:text-lg text-text-muted"
           >
-            <div class="flex items-center gap-2">
-              <svg
-                class="h-6 w-6 text-primary-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>ROI in 12-18 Months</span>
-            </div>
             <div class="flex items-center gap-2">
               <svg
                 class="h-6 w-6 text-primary-600"
@@ -455,871 +439,396 @@
               </svg>
               <span>High-Temperature Resistance</span>
             </div>
+            <div class="flex items-center gap-2">
+              <svg
+                class="h-6 w-6 text-primary-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Extended Service Life</span>
+            </div>
           </div>
         </div>
 
-        <!-- Industry Tabs Navigation -->
+        <!-- Equipment Filter Navigation -->
         <nav
           class="flex flex-wrap justify-center gap-3 mt-12"
-          role="tablist"
-          aria-label="Industry Lubricant Categories"
+          aria-label="Filter lubricants by equipment type"
         >
           <button
-            role="tab"
-            aria-selected="true"
-            aria-controls="crusher-construction-panel"
-            id="crusher-construction-tab"
-            data-tab="crusher-construction"
-            class="tab-button px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-primary-600 text-white shadow-md"
+            data-lubricant-filter="all"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-primary-600 text-white shadow-md"
           >
-            Crusher & Construction
+            All Equipment
           </button>
           <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="cement-panel"
-            id="cement-tab"
-            data-tab="cement"
-            class="tab-button px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
+            data-lubricant-filter="jaw-crusher"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
           >
-            Cement
+            Jaw Crusher
           </button>
           <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="food-pharma-panel"
-            id="food-pharma-tab"
-            data-tab="food-pharma"
-            class="tab-button px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
+            data-lubricant-filter="cone-crusher"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
           >
-            Food & Pharmaceuticals
+            Cone Crusher
           </button>
           <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="steel-panel"
-            id="steel-tab"
-            data-tab="steel"
-            class="tab-button px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
+            data-lubricant-filter="impactors"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
           >
-            Steel
+            Impactors
+          </button>
+          <button
+            data-lubricant-filter="vibrating-screen"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
+          >
+            Vibrating Screen
+          </button>
+          <button
+            data-lubricant-filter="conveyor"
+            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
+          >
+            Conveyor Bearing & Gearbox
           </button>
         </nav>
       </div>
     </section>
 
-    <!-- Tab Panels Container -->
-    <div class="tab-panels-container">
-      <!-- Crusher & Construction Tab Panel -->
-      <div
-        role="tabpanel"
-        id="crusher-construction-panel"
-        aria-labelledby="crusher-construction-tab"
-        class="tab-panel"
-        data-panel="crusher-construction"
-      >
-        <!-- Jaw Crusher Lubricants Section -->
-        <section
-          id="jaw-crusher-lubricants"
-          class="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-primary-100"
+    <!-- Products Grid Section -->
+    <section class="py-16 sm:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Products Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="lubricants-grid"
         >
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Jaw Crusher Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Premium greases and oils designed for compression crushers with
-                extreme-pressure protection for bearings, toggle points, and
-                gearboxes in demanding quarry and mining operations.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- Lithium-Complex EP Grease -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/jaw_grease.png"
-                  alt="Lithium-Complex EP Grease for jaw crusher bearings"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Lithium-Complex EP Grease
-                      </h3>
-                      <span
-                        class="bg-accent-gold-100 text-accent-gold-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Premium Grade</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      NLGI Grade 2 lithium-complex grease with ISO VG 680 base
-                      oil. Extreme pressure additives provide superior
-                      protection for main bearings, pitman bearings, and toggle
-                      points. High dropping point (>350°F) withstands
-                      crushing-generated heat.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-lithium-grease"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Gear Oil -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/jaw_gear_oil.jpg"
-                  alt="Heavy-duty gear oil for jaw crusher gearboxes"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Heavy-Duty Gear Oil
-                      </h3>
-                      <span
-                        class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Industrial Grade</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      AGMA 3-4 EP gear oil formulated for jaw crusher gearboxes
-                      and drive systems. Minimum 22 CST viscosity at operating
-                      temperature ensures optimal film strength under heavy
-                      loads. Prevents wear and extends gearbox life.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-gear-oil"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Cone Crusher Lubricants Section -->
-        <section id="cone-crusher-lubricants" class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Cone Crusher Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Specialized circulating oils and greases for secondary and
-                tertiary crushers with high-speed operations requiring superior
-                heat dissipation and bearing protection.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- Circulating Oil ISO 100 -->
-              <div
-                class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/cone_circulating_100.webp"
-                  alt="Circulating Oil ISO 100 for cone crusher main shaft"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Circulating Oil ISO 100
-                      </h3>
-                      <span
-                        class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >High Performance</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Premium circulating lubricant for cone crusher main shaft
-                      and mantle bearings. ISO VG 100 viscosity provides
-                      excellent flow characteristics while maintaining
-                      protective film under high loads. Ideal for continuous
-                      operation.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-iso100"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Circulating Oil ISO 150 -->
-              <div
-                class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/cone_circulating_150.jpg"
-                  alt="Circulating Oil ISO 150 for heavy-duty cone crushers"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Circulating Oil ISO 150
-                      </h3>
-                      <span
-                        class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Heavy Duty</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Higher viscosity circulating oil for larger cone crushers
-                      or heavy-load applications. ISO VG 150 maintains film
-                      strength under extreme operating conditions while
-                      providing superior thermal stability and oxidation
-                      resistance.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-iso150"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Gap Control Grease with MoS2 -->
-              <div
-                class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/cone_gap_grease.jpg"
-                  alt="Gap Control Grease with MoS2 for cone crusher adjustment mechanisms"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Gap Control Grease (MoS2)
-                      </h3>
-                      <span
-                        class="bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Specialty</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Molybdenum disulfide (MoS2) fortified grease for cone
-                      crusher gap control threads and adjustment mechanisms.
-                      Prevents adhesive wear and thread galling during frequent
-                      adjustments. Excellent for high-load, slow-moving
-                      applications.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-gap-control"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Horizontal Shaft Impactors (HSI) Lubricants Section -->
-        <section id="hsi-lubricants" class="py-16 sm:py-20 bg-background">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Horizontal Shaft Impactors (HSI) Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Heavy-duty greases engineered to withstand sudden high impacts
-                and shocks in recycling and aggregate operations processing soft
-                to medium-hard materials.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- High-Temperature Grease -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/impact_ht_grease.png"
-                  alt="High-Temperature EP Grease for impact crusher bearings"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        High-Temperature EP Grease
-                      </h3>
-                      <span
-                        class="bg-error-100 text-error-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Extreme Duty</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Specialized grease with dropping point exceeding 350°F
-                      (177°C) to withstand intense heat from impact crushing.
-                      Molybdenum disulfide additives protect against adhesive
-                      wear in bearings subjected to sudden shock loads.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-high-temp"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Heavy-Duty EP Grease -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/impact_heavy_grease.webp"
-                  alt="Heavy-Duty Impact Grease for shock load applications"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Heavy-Duty Impact Grease
-                      </h3>
-                      <span
-                        class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Shock Resistant</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      NLGI Grade 2 lithium-complex grease formulated
-                      specifically for impact crusher applications. Exceptional
-                      shock load capacity and water resistance ensure reliable
-                      performance in demolition recycling and aggregate
-                      production.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-impact"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Vertical Shaft Impactors (VSI) Lubricants Section -->
-        <section
-          id="vsi-lubricants"
-          class="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-primary-100"
-        >
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Vertical Shaft Impactors (VSI) Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                High-performance greases and oils for high-speed vertical shaft
-                impactors producing fine aggregates and manufactured sand.
-                Formulated to handle extreme speeds (900-1500 RPM) and
-                temperatures up to 120°C.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- High-Speed Vertical Bearing Grease -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/vsi_grease_placeholder.jpg"
-                  alt="High-speed vertical bearing grease for VSI crushers"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        High-Speed Vertical Bearing Grease
-                      </h3>
-                      <span
-                        class="bg-accent-gold-100 text-accent-gold-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Premium Grade</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      NLGI Grade 3 grease with ISO100 base oil and
-                      lithium-complex thickener. Specially designed for
-                      vertically-mounted bearings in high-speed VSI operations.
-                      Superior adhesion prevents dripping while absorbing shock
-                      loads and vibration. Application: 10g per 8-hour shift.
-                      Handles operating temperatures 80-120°C.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-vsi-grease"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Thin Oil Circulation System -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/vsi_oil_placeholder.jpg"
-                  alt="Thin oil circulation system for 24/7 VSI operations"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Thin Oil Circulation System
-                      </h3>
-                      <span
-                        class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Industrial Grade</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      35# bearing oil for continuous VSI operations. Capacity:
-                      150-190L. Provides excellent bearing work environment with
-                      higher stability and longer service life. Change interval:
-                      200 hours initial, then every 1000 hours. Ideal for
-                      round-the-clock crushing plants requiring maximum uptime.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-vsi-oil"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Vibrating Screen Lubricants Section -->
-        <section id="screen-lubricants" class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Vibrating Screen Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Vibration-resistant greases for screening equipment operating in
-                high-vibration environments. Excellent adhesion, water
-                resistance, and mechanical stability for eccentric shafts,
-                bearings, and exciter motors.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- Premium Vibration-Resistant Grease -->
-              <div
-                class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/screen_grease_placeholder.jpg"
-                  alt="Vibration-resistant grease for screening equipment bearings"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Premium Vibration-Resistant Grease
-                      </h3>
-                      <span
-                        class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >High Performance</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Mineral-based grease with polycarbamide thickener.
-                      Excellent resistance to high temperatures, loads, and
-                      oscillating motion. Fill bearing space 1/3 to 2/3 to
-                      prevent overheating. Water washout resistance for wet
-                      screening. Application: 60-80g every 24 hours during
-                      production.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-screen-grease"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Exciter Bearing Grease -->
-              <div
-                class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/screen_motor_grease_placeholder.jpg"
-                  alt="Universal exciter bearing grease for vibrating screen motors"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Exciter Bearing Grease
-                      </h3>
-                      <span
-                        class="bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Specialty</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Universal grease for ball and rolling bearings in
-                      vibrating screen exciters. High mechanical stability under
-                      continuous vibration. Suitable for construction machinery
-                      and aggregate screening operations. Maintenance interval:
-                      Every 3-5 months. Regular refilling ensures optimal
-                      exciter performance.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-screen-exciter"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Conveyor Bearing & Gearbox Lubricants Section -->
-        <section id="conveyor-lubricants" class="py-16 sm:py-20 bg-background">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Conveyor Bearing & Gearbox Lubricants
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Heavy-duty lubricants for belt conveyor idler bearings and drive
-                gearboxes. Excellent water resistance, load-carrying capacity,
-                and extended service intervals for continuous material transport
-                operations.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- Heavy-Duty Idler Bearing Grease -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/conveyor_bearing_grease_placeholder.jpg"
-                  alt="Heavy-duty lithium grease for conveyor idler bearings"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Heavy-Duty Idler Bearing Grease
-                      </h3>
-                      <span
-                        class="bg-accent-gold-100 text-accent-gold-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Premium Grade</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      Lithium-based formulation compatible with labyrinth seals.
-                      Temperature range: -30°C to +130°C. Excellent water
-                      spray-off resistance for outdoor operations. Sound-guided
-                      filling technique prevents over-lubrication. Extended
-                      service intervals in sealed bearings. Apply per
-                      manufacturer specification.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-conveyor-bearing"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-
-              <!-- Industrial Conveyor Gearbox Oil -->
-              <div
-                class="bg-surface rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row slide-up-scroll"
-              >
-                <img
-                  src="/images/conveyor_gear_oil_placeholder.jpg"
-                  alt="Industrial gear oil for conveyor drive gearboxes"
-                  class="w-full md:w-1/3 aspect-square object-contain bg-gray-50 flex-shrink-0"
-                />
-                <div
-                  class="p-6 flex-1 flex flex-col justify-center items-center text-center"
-                >
-                  <div class="w-full">
-                    <div class="flex items-center justify-center mb-3 gap-3">
-                      <h3 class="text-2xl font-bold text-text">
-                        Industrial Conveyor Gearbox Oil
-                      </h3>
-                      <span
-                        class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full"
-                        >Heavy Duty</span
-                      >
-                    </div>
-                    <p class="text-text-muted leading-relaxed">
-                      ISO VG 220-320 viscosity grade for conveyor drive
-                      gearboxes. AGMA Grade 4-5 equivalent with EP additives.
-                      Excellent film thickness and heat dissipation. Oxidation
-                      and rust inhibitors extend oil life. Splash lubrication
-                      compatible. Temperature management: Every 10°C reduction
-                      significantly extends service life.
-                    </p>
-                  </div>
-                  <a
-                    href="/pages/contact.html?source=lubricant-conveyor-gearbox"
-                    class="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Request Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-scroll">
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                The Impact of Premium Lubrication
-              </h2>
-              <p class="text-lg text-text-muted max-w-3xl mx-auto">
-                Industry-proven results from implementing quality lubrication
-                programs
-              </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <!-- Extended Equipment Life -->
-              <div class="text-center">
-                <div
-                  class="bg-primary-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
-                >
-                  <svg
-                    class="h-10 w-10 text-primary-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold text-text mb-2">
-                  Extended Component Life
-                </p>
-                <p class="text-sm text-text-muted">
-                  Reduced wear on bearings, gears, and mantles through proper
-                  lubrication
-                </p>
-              </div>
-
-              <!-- Reduced Downtime -->
-              <div class="text-center">
-                <div
-                  class="bg-accent-teal-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
-                >
-                  <svg
-                    class="h-10 w-10 text-accent-teal-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold text-text mb-2">
-                  Reduced Downtime
-                </p>
-                <p class="text-sm text-text-muted">
-                  Significantly fewer bearing failures and unplanned maintenance
-                  shutdowns
-                </p>
-              </div>
-
-              <!-- Cost Savings -->
-              <div class="text-center">
-                <div
-                  class="bg-accent-gold-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
-                >
-                  <svg
-                    class="h-10 w-10 text-accent-gold-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold text-text mb-2">
-                  Significant Cost Savings
-                </p>
-                <p class="text-sm text-text-muted">
-                  Avoid expensive bearing replacements and lost production time
-                </p>
-              </div>
-
-              <!-- ROI -->
-              <div class="text-center">
-                <div
-                  class="bg-success-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
-                >
-                  <svg
-                    class="h-10 w-10 text-success-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold text-text mb-2">
-                  Fast Return on Investment
-                </p>
-                <p class="text-sm text-text-muted">
-                  Quick payback through reduced downtime and optimized
-                  lubrication programs
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-16 sm:py-20 bg-primary-600 text-white">
+          <!-- Product 1: Mosil GM-00(SP2) - Most versatile -->
           <div
-            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center slide-up-scroll"
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="jaw-crusher cone-crusher vibrating-screen conveyor"
           >
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-              Get the Right Lubricants for Your Crusher
-            </h2>
-            <p class="text-lg text-primary-100 mb-8">
-              Our technical team will help you select the optimal lubricants for
-              your specific crusher type, operating conditions, and maintenance
-              program. Maximize equipment life and minimize downtime.
+            <img
+              src="/images/mosil_gm_00_sp2.png"
+              alt="Mosil GM-00(SP2) multi-purpose grease"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">Mosil GM-00(SP2)</h3>
+                <span
+                  class="bg-accent-gold-100 text-accent-gold-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Multi-Purpose</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                Premium lithium complex grease suitable for multiple equipment
+                types. NLGI Grade 00 provides excellent pumpability and
+                distribution in centralized lubrication systems. Ideal for
+                bearings and gear applications.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Jaw Crusher</span
+                >
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Cone Crusher</span
+                >
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Vibrating Screen</span
+                >
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Conveyor</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-gm-00-sp2"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 2: Mosil Gear Lube SP-150e -->
+          <div
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="cone-crusher"
+          >
+            <img
+              src="/images/mosil_drum.jpg"
+              alt="Mosil Gear Lube SP-150e gear oil"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">
+                  Mosil Gear Lube SP-150e
+                </h3>
+                <span
+                  class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Gear Oil</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                High-performance gear oil formulated for cone crusher gearboxes.
+                ISO VG 150 viscosity provides optimal film strength under heavy
+                loads. Excellent thermal stability and oxidation resistance for
+                extended service intervals.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Cone Crusher</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-gear-lube-sp-150e"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 3: Mosil Gear Lube SP-220e -->
+          <div
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="cone-crusher"
+          >
+            <img
+              src="/images/mosil_drum.jpg"
+              alt="Mosil Gear Lube SP-220e heavy duty gear oil"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">
+                  Mosil Gear Lube SP-220e
+                </h3>
+                <span
+                  class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Heavy Duty</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                Heavy-duty gear oil for demanding cone crusher applications. ISO
+                VG 220 viscosity maintains film strength under extreme operating
+                conditions. Superior load-carrying capacity with EP additives
+                for maximum gear protection.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Cone Crusher</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-gear-lube-sp-220e"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 4: Mosil BRB 400 -->
+          <div
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="cone-crusher"
+          >
+            <img
+              src="/images/mosil_brb_400.png"
+              alt="Mosil BRB 400 bearing oil"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">Mosil BRB 400</h3>
+                <span
+                  class="bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Specialty</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                Specialized bearing oil for cone crusher applications. High
+                viscosity index ensures consistent performance across wide
+                temperature ranges. Formulated with anti-wear additives for
+                extended bearing life and reduced maintenance.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Cone Crusher</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-brb-400"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 5: Mosil ML-110 Premium -->
+          <div
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="impactors"
+          >
+            <img
+              src="/images/mosil_bucket.jpg"
+              alt="Mosil ML-110 Premium impact crusher lubricant"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">
+                  Mosil ML-110 Premium
+                </h3>
+                <span
+                  class="bg-error-100 text-error-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Extreme Duty</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                Premium lubricant engineered for impact crusher bearings.
+                Exceptional shock load capacity withstands sudden high impacts.
+                High dropping point and molybdenum disulfide additives protect
+                against adhesive wear in demanding applications.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Impactors</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-ml-110-premium"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 6: Mosil Gear Lube SP-320e -->
+          <div
+            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+            data-lubricant-card
+            data-equipment="conveyor"
+          >
+            <img
+              src="/images/mosil_drum.jpg"
+              alt="Mosil Gear Lube SP-320e conveyor gearbox oil"
+              class="w-full aspect-square object-contain bg-gray-50"
+            />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-text">
+                  Mosil Gear Lube SP-320e
+                </h3>
+                <span
+                  class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                  >Industrial</span
+                >
+              </div>
+              <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                Industrial gear oil for conveyor drive gearboxes. ISO VG 320
+                viscosity grade with EP additives provides excellent film
+                thickness and heat dissipation. Oxidation and rust inhibitors
+                extend oil life in continuous operations.
+              </p>
+              <!-- Equipment Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded"
+                  >Conveyor Bearing & Gearbox</span
+                >
+              </div>
+              <a
+                href="/pages/contact.html?source=mosil-gear-lube-sp-320e"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+              >
+                Request Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 sm:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in-scroll">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
+            The Impact of Premium Lubrication
+          </h2>
+          <p class="text-lg text-text-muted max-w-3xl mx-auto">
+            Industry-proven results from implementing quality lubrication
+            programs
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Extended Equipment Life -->
+          <div class="text-center">
+            <div
+              class="bg-primary-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
+            >
+              <svg
+                class="h-10 w-10 text-primary-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <p class="text-lg font-semibold text-text mb-2">
+              Extended Component Life
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/pages/contact.html"
-                class="bg-accent-gold-500 hover:bg-accent-gold-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-block"
-              >
-                Request Technical Consultation
-              </a>
-              <a
-                href="tel:+9779842416857"
-                class="bg-surface hover:bg-gray-100 text-text px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-block"
-              >
-                Call: +977-9842416857
-              </a>
-            </div>
+            <p class="text-sm text-text-muted">
+              Reduced wear on bearings, gears, and mantles through proper
+              lubrication
+            </p>
           </div>
-        </section>
-      </div>
-      <!-- End Crusher & Construction Tab Panel -->
 
-      <!-- Cement Tab Panel -->
-      <div
-        role="tabpanel"
-        id="cement-panel"
-        aria-labelledby="cement-tab"
-        class="tab-panel hidden"
-        data-panel="cement"
-      >
-        <section class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <!-- Reduced Downtime -->
+          <div class="text-center">
             <div
-              class="bg-primary-50 rounded-2xl p-12 border-2 border-primary-200"
+              class="bg-accent-teal-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
             >
               <svg
-                class="h-24 w-24 text-primary-400 mx-auto mb-6"
+                class="h-10 w-10 text-accent-teal-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1328,46 +837,24 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Cement Industry Lubricants
-              </h2>
-              <p class="text-xl text-text-muted mb-6">Coming Soon</p>
-              <p class="text-lg text-text-muted mb-8">
-                Industrial lubricants specifically formulated for cement
-                manufacturing equipment including kilns, crushers, mills, and
-                conveyors. High-temperature resistant formulations for extreme
-                cement plant conditions.
-              </p>
-              <a
-                href="/pages/contact.html?source=lubricant-cement-inquiry"
-                class="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
-              >
-                Express Interest
-              </a>
             </div>
+            <p class="text-lg font-semibold text-text mb-2">Reduced Downtime</p>
+            <p class="text-sm text-text-muted">
+              Significantly fewer bearing failures and unplanned maintenance
+              shutdowns
+            </p>
           </div>
-        </section>
-      </div>
-      <!-- End Cement Tab Panel -->
 
-      <!-- Food & Pharmaceuticals Tab Panel -->
-      <div
-        role="tabpanel"
-        id="food-pharma-panel"
-        aria-labelledby="food-pharma-tab"
-        class="tab-panel hidden"
-        data-panel="food-pharma"
-      >
-        <section class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <!-- Cost Savings -->
+          <div class="text-center">
             <div
-              class="bg-accent-teal-50 rounded-2xl p-12 border-2 border-accent-teal-200"
+              class="bg-accent-gold-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
             >
               <svg
-                class="h-24 w-24 text-accent-teal-400 mx-auto mb-6"
+                class="h-10 w-10 text-accent-gold-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1376,46 +863,25 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Food & Pharmaceutical Grade Lubricants
-              </h2>
-              <p class="text-xl text-text-muted mb-6">Coming Soon</p>
-              <p class="text-lg text-text-muted mb-8">
-                Food-grade lubricants meeting FDA 21 CFR 178.3570 and NSF H1
-                standards for incidental food contact. Safe, non-toxic
-                formulations for food processing, packaging, and pharmaceutical
-                manufacturing equipment.
-              </p>
-              <a
-                href="/pages/contact.html?source=lubricant-food-pharma-inquiry"
-                class="inline-block bg-accent-teal-600 hover:bg-accent-teal-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
-              >
-                Express Interest
-              </a>
             </div>
+            <p class="text-lg font-semibold text-text mb-2">
+              Significant Cost Savings
+            </p>
+            <p class="text-sm text-text-muted">
+              Avoid expensive bearing replacements and lost production time
+            </p>
           </div>
-        </section>
-      </div>
-      <!-- End Food & Pharmaceuticals Tab Panel -->
 
-      <!-- Steel Tab Panel -->
-      <div
-        role="tabpanel"
-        id="steel-panel"
-        aria-labelledby="steel-tab"
-        class="tab-panel hidden"
-        data-panel="steel"
-      >
-        <section class="py-16 sm:py-20 bg-surface">
-          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <!-- ROI -->
+          <div class="text-center">
             <div
-              class="bg-secondary-50 rounded-2xl p-12 border-2 border-secondary-200"
+              class="bg-success-100 rounded-full h-20 w-20 mx-auto mb-4 flex items-center justify-center"
             >
               <svg
-                class="h-24 w-24 text-secondary-400 mx-auto mb-6"
+                class="h-10 w-10 text-success-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1424,32 +890,51 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                 />
               </svg>
-              <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">
-                Steel Industry Lubricants
-              </h2>
-              <p class="text-xl text-text-muted mb-6">Coming Soon</p>
-              <p class="text-lg text-text-muted mb-8">
-                High-temperature lubricants engineered for steel production
-                equipment including rolling mills, continuous casters, blast
-                furnaces, and material handling systems. Extreme heat and load
-                resistance for demanding steel plant operations.
-              </p>
-              <a
-                href="/pages/contact.html?source=lubricant-steel-inquiry"
-                class="inline-block bg-secondary-600 hover:bg-secondary-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
-              >
-                Express Interest
-              </a>
             </div>
+            <p class="text-lg font-semibold text-text mb-2">
+              Fast Return on Investment
+            </p>
+            <p class="text-sm text-text-muted">
+              Quick payback through reduced downtime and optimized lubrication
+              programs
+            </p>
           </div>
-        </section>
+        </div>
       </div>
-      <!-- End Steel Tab Panel -->
-    </div>
-    <!-- End Tab Panels Container -->
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-primary-600 text-white">
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center slide-up-scroll"
+      >
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          Get the Right Lubricants for Your Equipment
+        </h2>
+        <p class="text-lg text-primary-100 mb-8">
+          Our technical team will help you select the optimal Mosil lubricants
+          for your specific equipment type, operating conditions, and
+          maintenance program. Maximize equipment life and minimize downtime.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/pages/contact.html"
+            class="bg-accent-gold-500 hover:bg-accent-gold-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-block"
+          >
+            Request Technical Consultation
+          </a>
+          <a
+            href="tel:+9779705516857"
+            class="bg-surface hover:bg-gray-100 text-text px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-block"
+          >
+            Call: +977-9705516857
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-secondary-800 text-white pt-16 pb-8">
@@ -1546,14 +1031,14 @@
                 </svg>
                 <div>
                   <a
-                    href="tel:+9779842416857"
-                    class="hover:text-white transition-colors block"
-                    >+977-9842416857</a
-                  >
-                  <a
                     href="tel:+9779705516857"
                     class="hover:text-white transition-colors block"
                     >+977-9705516857</a
+                  >
+                  <a
+                    href="tel:+9779705502293"
+                    class="hover:text-white transition-colors block"
+                    >+977-9705502293</a
                   >
                 </div>
               </li>
