@@ -115,7 +115,7 @@ function initProductSlider() {
   if (!slider || !prevBtn || !nextBtn) return;
 
   let currentIndex = 0;
-  const totalSlides = 6; // 6 products total
+  const totalSlides = 9; // 9 products total
   let slidesToShow = getSlidesToShow();
 
   function getSlidesToShow() {
@@ -227,6 +227,15 @@ function initContactForm() {
     'lubricant-gap-control': 'I\'m interested in Gap Control Grease (MoS2) for my cone crusher. Please send me details and pricing.',
     'lubricant-high-temp': 'I need High-Temperature EP Grease for my crusher equipment. Please provide a quote.',
     'lubricant-impact': 'I would like information and pricing for Heavy-Duty Impact Grease for my crusher bearings.',
+    'lubricant-vsi-grease': 'I\'m interested in High-Speed Vertical Bearing Grease for my VSI crusher. Please provide specifications and pricing.',
+    'lubricant-vsi-oil': 'I need Thin Oil Circulation System (35# bearing oil) for my VSI crusher operations. Please send me details.',
+    'lubricant-screen-grease': 'I would like a quote for Premium Vibration-Resistant Grease for my vibrating screen equipment.',
+    'lubricant-screen-exciter': 'I\'m interested in Exciter Bearing Grease for my vibrating screen motors. Please provide pricing.',
+    'lubricant-conveyor-bearing': 'I need Heavy-Duty Idler Bearing Grease for my belt conveyor system. Please send specifications and quote.',
+    'lubricant-conveyor-gearbox': 'I would like information on Industrial Conveyor Gearbox Oil (ISO VG 220-320). Please provide pricing and availability.',
+    'lubricant-cement-inquiry': 'I\'m interested in learning about your cement industry lubricants. Please contact me with more information.',
+    'lubricant-food-pharma-inquiry': 'I would like information about food-grade and pharmaceutical lubricants. Please get in touch.',
+    'lubricant-steel-inquiry': 'I\'m interested in high-temperature lubricants for steel production equipment. Please provide more details.',
     'spare-concave': 'I need to order a replacement Concave for my cone crusher. Please provide pricing and lead time.',
     'spare-mantle': 'I\'m looking for a replacement Mantle for my cone crusher. Please send me specifications and pricing.',
     'spare-jaw-plates': 'I need replacement Jaw Plates for my jaw crusher. Please provide availability and quote.',
@@ -521,6 +530,83 @@ function initProductPageSlider() {
   updateProductSlider();
 }
 
+// Lubricants Industry Tabs Functionality
+function initLubricantsTabs() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  if (tabButtons.length === 0 || tabPanels.length === 0) return; // Only on lubricants page
+
+  // Function to switch tabs
+  function switchTab(tabName) {
+    // Hide all panels
+    tabPanels.forEach(panel => {
+      panel.classList.add('hidden');
+      panel.setAttribute('aria-hidden', 'true');
+    });
+
+    // Show selected panel
+    const selectedPanel = document.querySelector(`[data-panel="${tabName}"]`);
+    if (selectedPanel) {
+      selectedPanel.classList.remove('hidden');
+      selectedPanel.setAttribute('aria-hidden', 'false');
+    }
+
+    // Update button states
+    tabButtons.forEach(button => {
+      const buttonTab = button.getAttribute('data-tab');
+      const isActive = buttonTab === tabName;
+
+      button.setAttribute('aria-selected', isActive);
+
+      if (isActive) {
+        button.classList.remove('bg-surface', 'text-text', 'hover:bg-primary-50', 'border', 'border-border');
+        button.classList.add('bg-primary-600', 'text-white', 'shadow-md');
+      } else {
+        button.classList.remove('bg-primary-600', 'text-white', 'shadow-md');
+        button.classList.add('bg-surface', 'text-text', 'hover:bg-primary-50', 'border', 'border-border');
+      }
+    });
+  }
+
+  // Tab button click handlers
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tabName = button.getAttribute('data-tab');
+      switchTab(tabName);
+    });
+  });
+
+  // Keyboard navigation (arrow keys)
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('keydown', (e) => {
+      let newIndex = index;
+
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        newIndex = index > 0 ? index - 1 : tabButtons.length - 1;
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        newIndex = index < tabButtons.length - 1 ? index + 1 : 0;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        newIndex = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        newIndex = tabButtons.length - 1;
+      }
+
+      if (newIndex !== index) {
+        tabButtons[newIndex].focus();
+        tabButtons[newIndex].click();
+      }
+    });
+  });
+
+  // Initialize first tab as active
+  switchTab('crusher-construction');
+}
+
 // Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -531,5 +617,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductPageSlider();
   initContactForm();
   initPartsTabs();
+  initLubricantsTabs();
   initScrollAnimations();
 });
