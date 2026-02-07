@@ -18,7 +18,7 @@ export default defineConfig({
         verticalShaftImpactor: resolve(__dirname, "pages/vertical-shaft-impactor.html"),
         horizontalShaftImpactor: resolve(__dirname, "pages/horizontal-shaft-impactor.html"),
         rollCrusher: resolve(__dirname, "pages/roll-crusher.html"),
-        spiralClassifier: resolve(__dirname, "pages/spiral-classifier.html"),
+        bucketClassifier: resolve(__dirname, "pages/bucket-classifier.html"),
         hydroCyclone: resolve(__dirname, "pages/hydro-cyclone.html"),
         screwClassifier: resolve(__dirname, "pages/screw-classifier.html"),
       },

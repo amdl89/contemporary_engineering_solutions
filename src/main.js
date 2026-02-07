@@ -226,7 +226,7 @@ function initContactForm() {
     'horizontal-shaft-impactor': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
     'hsi-crusher': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
     'roll-crusher': 'I\'m interested in your Roll Crusher products. Please provide specifications and pricing.',
-    'spiral-classifier': 'I would like information about your Spiral Classifier equipment. Please send details and pricing.',
+    'bucket-classifier': 'I would like information about your Bucket Classifier equipment. Please send details and pricing.',
     'screw-classifier': 'I\'m interested in your Screw Classifier products. Please provide specifications and pricing.',
     'hydro-cyclone': 'I would like information about your Hydro Cyclone equipment. Please send specifications and pricing.',
     'about': 'I would like to know more about Contemporary Engineering Solutions and your services.',
