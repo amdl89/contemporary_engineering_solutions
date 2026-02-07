@@ -78,7 +78,7 @@
 
 **Changes Made** (using sed for efficiency):
 Navigation:
-1. Logo: `h-28 w-auto` → `h-20 md:h-28 w-auto`
+1. Logo: `h-28 w-auto` → `h-20  w-auto`
 2. Nav container: `h-28` → `h-20 md:h-28`
 3. Nav text: `text-xl` → `text-base lg:text-xl`
 4. Dropdown icon: `h-6 w-6` → `h-5 w-5 lg:h-6 lg:w-6`
