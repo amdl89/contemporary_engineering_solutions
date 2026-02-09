@@ -392,75 +392,99 @@
 
     <!-- Hero Section -->
     <section
-      class="bg-gradient-to-br from-primary-50 to-primary-100 py-16 sm:py-24"
+      class="bg-gradient-to-br from-primary-50 via-surface to-primary-50 py-16 sm:py-24"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text mb-6">
-            Industrial Lubricants
-          </h1>
-          <p class="text-xl sm:text-2xl text-text-muted mb-4">
-            Premium-grade lubricants for crushing and screening equipment.
-            Extend equipment life and reduce downtime with specialized
-            formulations.
-          </p>
-          <div
-            class="flex flex-wrap justify-center gap-4 text-base sm:text-lg text-text-muted"
-          >
-            <div class="flex items-center gap-2">
-              <svg
-                class="h-6 w-6 text-primary-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>Extreme Pressure Protection</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg
-                class="h-6 w-6 text-primary-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>High-Temperature Resistance</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg
-                class="h-6 w-6 text-primary-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>Extended Service Life</span>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span
+          class="bg-accent-gold-100 text-accent-gold-700 text-sm font-semibold px-4 py-2 rounded-full"
+        >
+          Premium Lubricants
+        </span>
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text mt-6 mb-6"
+        >
+          Industrial Lubricants<br />for Crushing Equipment
+        </h1>
+        <p class="text-lg sm:text-xl text-text-muted max-w-3xl mx-auto mb-8">
+          Premium-grade lubricants engineered for crushing and screening
+          equipment. Extend equipment life and reduce downtime with specialized
+          formulations designed for extreme conditions.
+        </p>
+        <div
+          class="flex flex-wrap justify-center gap-4 text-base sm:text-lg text-text-muted"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="h-6 w-6 text-primary-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Extreme Pressure Protection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="h-6 w-6 text-primary-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>High-Temperature Resistance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="h-6 w-6 text-primary-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Extended Service Life</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Equipment Filter Navigation -->
+    <!-- Products Grid Section -->
+    <section
+      class="py-16 sm:py-24 bg-gradient-to-br from-primary-50 to-surface"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 fade-in-scroll">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 mt-4">
+            Lubricants Inventory
+          </h2>
+          <p class="text-lg text-text-muted max-w-3xl mx-auto">
+            High-performance lubricants engineered for specific equipment types.
+            Each formulation is optimized for the unique operating conditions
+            and requirements of crushing and screening machinery.
+          </p>
+        </div>
+
+        <!-- Equipment Filter Tabs -->
         <nav
-          class="flex flex-wrap justify-center gap-3 mt-12"
+          class="flex flex-wrap justify-center gap-3 mb-12"
           aria-label="Filter lubricants by equipment type"
         >
           <button
@@ -500,12 +524,7 @@
             Conveyor Bearing & Gearbox
           </button>
         </nav>
-      </div>
-    </section>
 
-    <!-- Products Grid Section -->
-    <section class="py-16 sm:py-20 bg-surface">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Products Grid -->
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -520,7 +539,7 @@
             <img
               src="/images/mosil_gm_00_sp2.png"
               alt="Mosil GM-00(SP2) multi-purpose grease"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
@@ -573,7 +592,7 @@
             <img
               src="/images/mosil_drum.jpg"
               alt="Mosil Gear Lube SP-150e gear oil"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
@@ -616,7 +635,7 @@
             <img
               src="/images/mosil_drum.jpg"
               alt="Mosil Gear Lube SP-220e heavy duty gear oil"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
@@ -659,7 +678,7 @@
             <img
               src="/images/mosil_brb_400.png"
               alt="Mosil BRB 400 bearing oil"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
@@ -700,7 +719,7 @@
             <img
               src="/images/mosil_bucket.jpg"
               alt="Mosil ML-110 Premium impact crusher lubricant"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
@@ -743,7 +762,7 @@
             <img
               src="/images/mosil_drum.jpg"
               alt="Mosil Gear Lube SP-320e conveyor gearbox oil"
-              class="w-full aspect-square object-contain bg-gray-50"
+              class="p-2 w-full aspect-square object-contain bg-gray-50"
             />
             <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-start justify-between mb-3">
