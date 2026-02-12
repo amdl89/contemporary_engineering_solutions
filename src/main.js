@@ -17,6 +17,7 @@ function initNavigation() {
   // Desktop dropdown (hover)
   const dropdown = document.querySelector("[data-dropdown]");
   if (dropdown) {
+    const trigger = dropdown.querySelector("[data-dropdown-trigger]");
     const menu = dropdown.querySelector("[data-dropdown-menu]");
     const icon = dropdown.querySelector("[data-dropdown-icon]");
 
@@ -25,6 +26,7 @@ function initNavigation() {
       menu.classList.remove("opacity-0", "invisible");
       menu.classList.add("opacity-100", "visible");
       icon.classList.add("rotate-180");
+      if (trigger) trigger.setAttribute("aria-expanded", "true");
     });
 
     // Hide dropdown when mouse leaves
@@ -32,6 +34,7 @@ function initNavigation() {
       menu.classList.remove("opacity-100", "visible");
       menu.classList.add("opacity-0", "invisible");
       icon.classList.remove("rotate-180");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
     });
   }
 
@@ -58,8 +61,10 @@ function initNavigation() {
 
   if (mobileDropdownTrigger && mobileDropdownMenu) {
     mobileDropdownTrigger.addEventListener("click", () => {
-      mobileDropdownMenu.classList.toggle("hidden");
+      const isHidden = mobileDropdownMenu.classList.toggle("hidden");
       mobileDropdownIcon.classList.toggle("rotate-180");
+      // Update aria-expanded based on visibility
+      mobileDropdownTrigger.setAttribute("aria-expanded", !isHidden);
     });
   }
 }
