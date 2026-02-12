@@ -22,6 +22,17 @@ Multi-page marketing website for an engineering solutions company.
 - `/guide` - Get pattern recommendations (Vanilla/Planning-with-Files/SuperClaude)
 - `/create-skill` - Create new domain-specific skills
 
+## Planning Conventions
+
+**IMPORTANT:** When using planning-with-files pattern or `/plan` command:
+
+- **Always reference** `.claude/PLANNING_FILES_GUIDE.md` for file location conventions
+- Planning files MUST go in `claude-files/plans/current/`
+- **Never** create `task_plan.md`, `findings.md`, or `progress.md` in project root
+- Archive completed plans to `claude-files/plans/archive/YYYY-MM-DD-description/`
+
+This ensures consistency with project file organization and enables proper session recovery.
+
 ## Skills
 
 Generic skills available in `.claude/skills/`:

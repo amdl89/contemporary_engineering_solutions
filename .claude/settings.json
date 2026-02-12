@@ -56,6 +56,11 @@
           },
           {
             "type": "command",
+            "command": "./.claude/hooks/planning-context-injector.sh",
+            "description": "Injects PLANNING_FILES_GUIDE.md reminder when planning pattern is used"
+          },
+          {
+            "type": "command",
             "command": "./.claude/hooks/planning-reminder.sh",
             "description": "Reminds to create plan before implementation"
           },

@@ -189,3 +189,72 @@ html {
 .tab-button:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* Swiper Customization */
+/* Ensure equal height cards in products slider */
+[data-products-slider] .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+[data-products-slider] .swiper-slide {
+  height: auto !important;
+  display: flex;
+}
+
+/* Make cards inside slides stretch to full height */
+[data-products-slider] .swiper-slide > * {
+  flex: 1;
+}
+
+/* Override Swiper's default button styles to use our brand design */
+.swiper-button-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* Navigation button focus states for accessibility */
+[data-slider-prev]:focus,
+[data-slider-next]:focus,
+[data-product-prev]:focus,
+[data-product-next]:focus {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(75, 46, 131, 0.1);
+}
+
+[data-slider-prev]:focus:not(:focus-visible),
+[data-slider-next]:focus:not(:focus-visible),
+[data-product-prev]:focus:not(:focus-visible),
+[data-product-next]:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth hover transition enhancement */
+[data-slider-prev],
+[data-slider-next],
+[data-product-prev],
+[data-product-next] {
+  transition-property: background-color, color, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Subtle scale effect on hover - doesn't interfere with positioning */
+[data-slider-prev]:hover:not(:disabled),
+[data-slider-next]:hover:not(:disabled),
+[data-product-prev]:hover:not(:disabled),
+[data-product-next]:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.06);
+}
+
+/* Active/pressed state - subtle feedback */
+[data-slider-prev]:active:not(:disabled),
+[data-slider-next]:active:not(:disabled),
+[data-product-prev]:active:not(:disabled),
+[data-product-next]:active:not(:disabled) {
+  transform: scale(0.98);
+}

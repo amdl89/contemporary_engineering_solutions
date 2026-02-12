@@ -466,12 +466,10 @@
       class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden bg-surface"
     >
       <div class="absolute inset-0">
-        <div
-          class="flex transition-transform duration-700 ease-in-out h-full"
-          data-product-slider
-        >
-          <!-- Slide 1 -->
-          <div class="w-full flex-shrink-0 h-full relative">
+        <div class="swiper h-full" data-product-slider>
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide h-full relative">
             <div class="w-full h-full flex items-center justify-center">
               <svg
                 viewBox="0 0 400 300"
@@ -683,8 +681,8 @@
               </p>
             </div>
           </div>
-          <!-- Slide 2 -->
-          <div class="w-full flex-shrink-0 h-full relative">
+            <!-- Slide 2 -->
+            <div class="swiper-slide h-full relative">
             <div class="w-full h-full flex items-center justify-center">
               <svg
                 viewBox="0 0 400 300"

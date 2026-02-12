@@ -1,3 +1,10 @@
+// Import Swiper initialization functions
+import {
+  initHeroSlider as initHeroSwiperSlider,
+  initProductSlider as initProductSwiperSlider,
+  initProductPageSlider as initProductPageSwiperSlider,
+} from './swiper-init.js';
+
 // Navigation functionality
 function initNavigation() {
   // Desktop dropdown (hover)
@@ -105,104 +112,6 @@ function initActiveNavState() {
   updateActiveLink(); // Call once on page load
 }
 
-// Product Slider functionality
-function initProductSlider() {
-  const slider = document.querySelector('[data-products-slider]');
-  const prevBtn = document.querySelector('[data-slider-prev]');
-  const nextBtn = document.querySelector('[data-slider-next]');
-  const dots = document.querySelectorAll('[data-dot]');
-
-  if (!slider || !prevBtn || !nextBtn) return;
-
-  let currentIndex = 0;
-  const totalSlides = 9; // 9 products total
-  let slidesToShow = getSlidesToShow();
-
-  function getSlidesToShow() {
-    if (window.innerWidth >= 1024) return 3; // Desktop
-    if (window.innerWidth >= 768) return 2; // Tablet
-    return 1; // Mobile
-  }
-
-  function updateSlider() {
-    slidesToShow = getSlidesToShow();
-    const slideWidth = 100 / slidesToShow;
-    const translateX = -(currentIndex * slideWidth);
-    slider.style.transform = `translateX(${translateX}%)`;
-
-    // Update dots
-    dots.forEach((dot, index) => {
-      if (index === currentIndex) {
-        dot.classList.remove('bg-secondary-300');
-        dot.classList.add('bg-primary-600');
-      } else {
-        dot.classList.remove('bg-primary-600');
-        dot.classList.add('bg-secondary-300');
-      }
-    });
-  }
-
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex = currentIndex - 1;
-      updateSlider();
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    const maxIndex = Math.max(0, totalSlides - slidesToShow);
-    if (currentIndex < maxIndex) {
-      currentIndex = currentIndex + 1;
-      updateSlider();
-    }
-  });
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      currentIndex = parseInt(dot.getAttribute('data-dot'));
-      updateSlider();
-    });
-  });
-
-  // Auto-play
-  setInterval(() => {
-    const maxIndex = Math.max(0, totalSlides - slidesToShow);
-    if (currentIndex < maxIndex) {
-      currentIndex = currentIndex + 1;
-    } else {
-      currentIndex = 0; // Reset to beginning when auto-play reaches end
-    }
-    updateSlider();
-  }, 5000);
-
-  // Update on resize
-  window.addEventListener('resize', updateSlider);
-
-  updateSlider();
-}
-
-// Hero Slider functionality
-function initHeroSlider() {
-  const slider = document.querySelector('[data-hero-slider]');
-
-  if (!slider) return;
-
-  let currentIndex = 0;
-  const totalSlides = 3;
-
-  function updateHeroSlider() {
-    const translateX = -(currentIndex * 100);
-    slider.style.transform = `translateX(${translateX}%)`;
-  }
-
-  // Auto-play
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateHeroSlider();
-  }, 4000);
-
-  updateHeroSlider();
-}
 
 // Contact Form Validation
 function initContactForm() {
@@ -524,40 +433,6 @@ function initScrollAnimations() {
   animatedElements.forEach(el => observer.observe(el));
 }
 
-// Product Page Slider functionality (for jaw-crusher and cone-crusher pages)
-function initProductPageSlider() {
-  const slider = document.querySelector('[data-product-slider]');
-  const prevBtn = document.querySelector('[data-product-prev]');
-  const nextBtn = document.querySelector('[data-product-next]');
-
-  if (!slider || !prevBtn || !nextBtn) return;
-
-  let currentIndex = 0;
-  const slides = slider.children.length;
-
-  function updateProductSlider() {
-    const translateX = -(currentIndex * 100);
-    slider.style.transform = `translateX(${translateX}%)`;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : slides - 1;
-    updateProductSlider();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = currentIndex < slides - 1 ? currentIndex + 1 : 0;
-    updateProductSlider();
-  });
-
-  // Auto-play
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % slides;
-    updateProductSlider();
-  }, 4000);
-
-  updateProductSlider();
-}
 
 // Lubricants Equipment Filter Functionality
 function initLubricantsFilter() {
@@ -612,9 +487,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initSmoothScroll();
   initActiveNavState();
-  initHeroSlider();
-  initProductSlider();
-  initProductPageSlider();
+  // Swiper.js sliders (replacing custom implementations)
+  initHeroSwiperSlider();
+  initProductSwiperSlider();
+  initProductPageSwiperSlider();
   initContactForm();
   initPartsTabs();
   initLubricantsFilter();
