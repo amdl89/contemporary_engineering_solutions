@@ -10,7 +10,10 @@ Multi-page marketing website for an engineering solutions company.
 
 - **Build Tool**: Vite 7.2.4
 - **Styling**: Tailwind CSS v4 (with @tailwindcss/vite plugin)
-- **JavaScript**: Vanilla JS (ES modules)
+- **JavaScript**:
+  - **Alpine.js 3.15.8** - Reactive UI components (tabs, filters, forms)
+  - **Swiper.js 12.1.0** - Touch-enabled sliders
+  - Vanilla JS (ES modules) - Navigation, scroll animations
 - **Font**: Google Fonts (Poppins)
 - **Pages**: Home, About, Spare Parts & Services, Lubricants, Contact
 
@@ -53,11 +56,12 @@ contemporary-engineering-solutions/
 ├── index.html                    # Homepage (at root for dev server)
 ├── pages/
 │   ├── about.html                # About page
-│   ├── spare-parts-services.html # Services page
-│   ├── lubricants.html           # Lubricants page
-│   └── contact.html              # Contact page
+│   ├── spare-parts-services.html # Services page (Alpine.js tabs)
+│   ├── lubricants.html           # Lubricants page (Alpine.js filter)
+│   └── contact.html              # Contact page (Alpine.js form)
 ├── src/
-│   ├── main.js                   # Main JavaScript entry
+│   ├── main.js                   # Main JavaScript entry (Alpine.js + Vanilla JS)
+│   ├── swiper-init.js            # Swiper.js slider configurations
 │   └── style.css                 # Tailwind CSS styles
 ├── public/
 │   ├── logo.png                  # Company logo
@@ -71,6 +75,7 @@ contemporary-engineering-solutions/
 ### Color Palette
 
 **Primary (Royal Purple)**
+
 - `bg-primary-600` - Primary buttons, navbar, key CTAs
 - `bg-primary-700` - Hover states for primary elements
 - `bg-primary-500` - Links, active states
@@ -78,31 +83,37 @@ contemporary-engineering-solutions/
 - `bg-primary-50` - Hero sections, feature backgrounds
 
 **Secondary (Purple-Slate)**
+
 - `bg-secondary-600` - Secondary buttons, less prominent CTAs
 - `bg-secondary-700` - Hover states for secondary buttons
 - `text-secondary-300` - Placeholder text, disabled states
 - `bg-secondary-100` - Muted badges, subtle highlights
 
 **Accent Gold** (use sparingly for high-impact moments)
+
 - `bg-accent-gold-500` - Special CTAs, promotions, highlights
 - `bg-accent-gold-600` - Hover states, icons
 - `bg-accent-gold-100` - Highlight backgrounds, callout boxes
 
 **Accent Teal** (cool alternative accent)
+
 - `bg-accent-teal-600` - Secondary links, alternative actions
 - `bg-accent-teal-100` - Info boxes, tips, alternate highlights
 
 **Text Colors**
+
 - `text-text` - Body copy, headings, primary content
 - `text-text-muted` - Secondary info, descriptions, captions
 - `text-text-light` - Placeholders, disabled text (non-essential only)
 
 **Surfaces**
+
 - `bg-background` - Page background (off-white)
 - `bg-surface` - Cards, modals, containers (white)
 - `border-border` - Dividers, input borders, card outlines
 
 **Feedback States**
+
 - Success: `bg-success-500`, `bg-success-100`
 - Warning: `bg-warning-500`, `bg-warning-100`
 - Error: `bg-error-500`, `bg-error-100`
@@ -164,10 +175,27 @@ contemporary-engineering-solutions/
 
 ### JavaScript Organization
 
+- **Alpine.js** for reactive UI components (tabs, filters, forms)
+- **Swiper.js** for touch-enabled sliders and carousels
+- **Vanilla JS** for navigation, scroll animations, utilities
 - Keep JavaScript modular using ES modules
 - Import only what's needed on each page
-- Use vanilla JS for DOM manipulation
-- Avoid jQuery or heavy frameworks (keep it lightweight)
+
+#### Alpine.js Usage
+
+- Use for interactive components (tabs, filters, forms)
+- Use config-based patterns for filtering logic
+- Example: `x-data="{ activeTab: 'all', partsConfig: {...}, shouldShow(id) {...} }"`
+- Keep Alpine.js components declarative in HTML
+- See `pages/spare-parts-services.html` and `pages/lubricants.html` for examples
+
+#### Swiper.js Usage
+
+- Configured in `src/swiper-init.js`
+- Three slider types: hero, product grid, product page
+- Use data attributes: `[data-hero-slider]`, `[data-products-slider]`, etc.
+- Navigation buttons: `[data-slider-prev]`, `[data-slider-next]`
+- See `src/swiper-init.js` for configuration details
 
 ### Multi-Page Setup
 
@@ -260,14 +288,102 @@ Serves the production build locally for testing.
 4. Build and preview production version
 5. Run `/review` before committing
 
+## Interactive Components
+
+### Alpine.js Patterns
+
+**Config-Based Filtering** (Recommended Pattern)
+
+```javascript
+// Define config object mapping items to categories
+x-data="{
+  activeTab: 'all',
+
+  itemsConfig: {
+    'item-id-1': ['category-a', 'category-b'],
+    'item-id-2': ['category-a'],
+    'item-id-3': ['category-c']
+  },
+
+  shouldShow(itemId) {
+    return this.activeTab === 'all' || this.itemsConfig[itemId]?.includes(this.activeTab)
+  }
+}"
+
+// In HTML
+<div data-item-id="item-id-1" x-show="shouldShow($el.dataset.itemId)">...</div>
+```
+
+**Form Validation**
+
+```javascript
+x-data="{
+  formData: { name: '', email: '', message: '' },
+  errors: {},
+
+  validateField(field) {
+    // Validation logic
+    if (error) this.errors[field] = errorMessage
+    else delete this.errors[field]
+  },
+
+  submitForm() {
+    // Submit logic
+  }
+}"
+
+// In HTML
+<input x-model="formData.name" @blur="validateField('name')">
+<p x-show="errors.name" x-text="errors.name"></p>
+```
+
+### Swiper.js Patterns
+
+**Hero Slider**
+
+```html
+<div data-hero-slider class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Content</div>
+  </div>
+  <button data-slider-prev>Previous</button>
+  <button data-slider-next>Next</button>
+  <div data-slider-pagination></div>
+</div>
+```
+
+**Product Grid Slider**
+
+```html
+<div data-products-slider class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Product Card</div>
+  </div>
+  <button data-product-prev>←</button>
+  <button data-product-next>→</button>
+</div>
+```
+
+Configuration details in `src/swiper-init.js`.
+
 ## Important Notes
 
-- **No Test Framework**: This is a static site with minimal JS, testing would be manual/visual
+- **No Test Framework**: This is a static site, testing is manual/visual
 - **No Backend**: Pure frontend static site
 - **Multi-Page App**: Each page is a separate HTML entry point (not an SPA)
-- **Minimal JavaScript**: Keep JS light - this is primarily a content/marketing site
+- **Alpine.js for Interactivity**: Tabs, filters, and forms use Alpine.js
+- **Swiper.js for Sliders**: All carousels use Swiper.js (touch-enabled, responsive)
+- **Config-Based Filtering**: Use config objects for maintainable filter logic
 - **Shared Assets**: All pages share CSS, fonts, and JS modules
 - **Build Output**: `dist/` folder contains production-ready static files
+
+### JavaScript Architecture
+
+- **Alpine.js** - Reactive components (tabs, filters, contact form)
+- **Swiper.js** - Sliders and carousels (hero, products)
+- **Vanilla JS** - Navigation dropdowns, smooth scroll, scroll animations
+- **CSS** - `scroll-behavior: smooth` for smooth scrolling
+- **Intersection Observer** - Scroll-triggered animations
 
 ## Git Workflow
 
@@ -288,12 +404,3 @@ The `.claude/hooks/` folder provides automation:
 - **build-check** - Verifies build after edits
 
 Hooks are configured in `.claude/settings.json`.
-
-## Next Steps
-
-1. Build out the placeholder pages with actual content
-2. Add navigation menu across all pages
-3. Implement contact form with validation
-4. Add company information and services details
-5. Optimize images and assets
-6. Consider adding animations/transitions for polish

@@ -430,59 +430,82 @@
           </p>
         </div>
 
-        <!-- Equipment Filter Tabs -->
-        <nav
-          class="flex flex-wrap justify-center gap-3 mb-12"
-          aria-label="Filter lubricants by equipment type"
-        >
-          <button
-            data-lubricant-filter="all"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-primary-600 text-white shadow-md"
-          >
-            All Equipment
-          </button>
-          <button
-            data-lubricant-filter="jaw-crusher"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-          >
-            Jaw Crusher
-          </button>
-          <button
-            data-lubricant-filter="cone-crusher"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-          >
-            Cone Crusher
-          </button>
-          <button
-            data-lubricant-filter="impactors"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-          >
-            Impactors
-          </button>
-          <button
-            data-lubricant-filter="vibrating-screen"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-          >
-            Vibrating Screen
-          </button>
-          <button
-            data-lubricant-filter="conveyor"
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-          >
-            Conveyor Bearing & Gearbox
-          </button>
-        </nav>
+        <!-- Equipment Filter Tabs (Alpine.js) -->
+        <div x-data="{
+          activeFilter: 'all',
 
-        <!-- Products Grid -->
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          id="lubricants-grid"
-        >
+          // Config: maps each product to its compatible equipment
+          productsConfig: {
+            'mosil-gm-00-sp2': ['jaw-crusher', 'cone-crusher', 'vibrating-screen', 'conveyor'],
+            'mosil-gear-lube-sp-150e': ['cone-crusher'],
+            'mosil-gear-lube-sp-220e': ['cone-crusher'],
+            'mosil-brb-400': ['cone-crusher'],
+            'mosil-ml-110-premium': ['impactors'],
+            'mosil-gear-lube-sp-320e': ['conveyor']
+          },
+
+          // Check if product should be shown for active filter
+          shouldShow(productId) {
+            return this.activeFilter === 'all' || this.productsConfig[productId]?.includes(this.activeFilter)
+          }
+        }">
+          <nav
+            class="flex flex-wrap justify-center gap-3 mb-12"
+            aria-label="Filter lubricants by equipment type"
+          >
+            <button
+              @click="activeFilter = 'all'"
+              :class="activeFilter === 'all' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              All Equipment
+            </button>
+            <button
+              @click="activeFilter = 'jaw-crusher'"
+              :class="activeFilter === 'jaw-crusher' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Jaw Crusher
+            </button>
+            <button
+              @click="activeFilter = 'cone-crusher'"
+              :class="activeFilter === 'cone-crusher' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Cone Crusher
+            </button>
+            <button
+              @click="activeFilter = 'impactors'"
+              :class="activeFilter === 'impactors' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Impactors
+            </button>
+            <button
+              @click="activeFilter = 'vibrating-screen'"
+              :class="activeFilter === 'vibrating-screen' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Vibrating Screen
+            </button>
+            <button
+              @click="activeFilter = 'conveyor'"
+              :class="activeFilter === 'conveyor' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Conveyor Bearing & Gearbox
+            </button>
+          </nav>
+
+          <!-- Products Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Product 1: Mosil GM-00(SP2) - Most versatile -->
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-gm-00-sp2"
             data-equipment="jaw-crusher cone-crusher vibrating-screen conveyor"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_gm_00_sp2.png"
@@ -535,7 +558,9 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-gear-lube-sp-150e"
             data-equipment="cone-crusher"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_drum.jpg"
@@ -578,7 +603,9 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-gear-lube-sp-220e"
             data-equipment="cone-crusher"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_drum.jpg"
@@ -621,7 +648,9 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-brb-400"
             data-equipment="cone-crusher"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_brb_400.png"
@@ -662,7 +691,9 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-ml-110-premium"
             data-equipment="impactors"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_bucket.jpg"
@@ -705,7 +736,9 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
             data-lubricant-card
+            data-product-id="mosil-gear-lube-sp-320e"
             data-equipment="conveyor"
+            x-show="shouldShow($el.dataset.productId)"
           >
             <img
               src="/images/mosil_drum.jpg"
@@ -743,6 +776,7 @@
               </a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

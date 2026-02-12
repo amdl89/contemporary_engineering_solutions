@@ -420,7 +420,117 @@
           <div>
             <h2 class="text-3xl font-bold text-text mb-8">Send Us a Message</h2>
 
-            <form id="contact-form" class="space-y-6">
+            <form
+              id="contact-form"
+              class="space-y-6"
+              x-data="{
+                formData: { name: '', email: '', message: '' },
+                errors: {},
+                showSuccess: false,
+
+                init() {
+                  // Pre-fill message from URL query param
+                  const urlParams = new URLSearchParams(window.location.search);
+                  const source = urlParams.get('source');
+                  const messages = {
+                    'jaw-crusher': 'I\\'m interested in learning more about your Jaw Crusher products.',
+                    'cone-crusher': 'I\\'m interested in learning more about your Cone Crusher products.',
+                    'vibrating-screen': 'I would like information about your Vibrating Screen products. Please send specifications and pricing.',
+                    'vertical-shaft-impactor': 'I\\'m interested in your Vertical Shaft Impactor (VSI) crushers. Please provide details and pricing.',
+                    'vsi-crusher': 'I\\'m interested in your Vertical Shaft Impactor (VSI) crushers. Please provide details and pricing.',
+                    'horizontal-shaft-impactor': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
+                    'hsi-crusher': 'I would like information about your Horizontal Shaft Impactor (HSI) products. Please send specifications.',
+                    'roll-crusher': 'I\\'m interested in your Roll Crusher products. Please provide specifications and pricing.',
+                    'bucket-classifier': 'I would like information about your Bucket Classifier equipment. Please send details and pricing.',
+                    'screw-classifier': 'I\\'m interested in your Screw Classifier products. Please provide specifications and pricing.',
+                    'hydro-cyclone': 'I would like information about your Hydro Cyclone equipment. Please send specifications and pricing.',
+                    'about': 'I would like to know more about Contemporary Engineering Solutions and your services.',
+                    'mosil-gm-00-sp2': 'I would like a quote for Mosil GM-00(SP2) multi-purpose grease. Please provide pricing and availability.',
+                    'mosil-gear-lube-sp-150e': 'I\\'m interested in Mosil Gear Lube SP-150e for my cone crusher gearbox. Please send specifications and pricing.',
+                    'mosil-gear-lube-sp-220e': 'I need Mosil Gear Lube SP-220e heavy-duty gear oil for my cone crusher. Please provide a quote.',
+                    'mosil-brb-400': 'I would like information and pricing for Mosil BRB 400 specialty bearing oil for cone crusher applications.',
+                    'mosil-ml-110-premium': 'I\\'m interested in Mosil ML-110 Premium for my impact crusher. Please provide specifications and pricing.',
+                    'mosil-gear-lube-sp-320e': 'I need Mosil Gear Lube SP-320e for my conveyor gearbox. Please send me specifications and a quote.',
+                    'spare-concave': 'I need to order a replacement Concave for my cone crusher. Please provide pricing and lead time.',
+                    'spare-mantle': 'I\\'m looking for a replacement Mantle for my cone crusher. Please send me specifications and pricing.',
+                    'spare-jaw-plates': 'I need replacement Jaw Plates for my jaw crusher. Please provide availability and quote.',
+                    'spare-vsi': 'I\\'m interested in VSI Parts for my vertical shaft impact crusher. Please provide specifications and pricing.',
+                    'spare-wire-mesh': 'I need Wire Meshes for screening equipment. Please send me available sizes and pricing.',
+                    'spare-plate-mesh': 'I\\'m interested in Plate Mesh products for my screening equipment. Please provide specifications and pricing.',
+                    'spare-clamping-fasteners': 'I need Clamping Fasteners for my crusher equipment. Please send me available options and pricing.',
+                    'spare-rubber-bedding': 'I would like to order Rubber Bedding for my crusher. Please provide specifications and quote.'
+                  };
+                  if (source && messages[source] && !this.formData.message) {
+                    this.formData.message = messages[source];
+                  }
+                },
+
+                validateEmail(email) {
+                  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+                },
+
+                validateField(field) {
+                  const value = this.formData[field];
+                  let error = '';
+
+                  if (field === 'name') {
+                    if (!value || value.trim().length < 2) {
+                      error = 'Name must be at least 2 characters long';
+                    } else if (value.trim().length > 100) {
+                      error = 'Name must be less than 100 characters';
+                    }
+                  } else if (field === 'email') {
+                    if (!value || value.trim().length === 0) {
+                      error = 'Email is required';
+                    } else if (!this.validateEmail(value.trim())) {
+                      error = 'Please enter a valid email address';
+                    }
+                  } else if (field === 'message') {
+                    if (!value || value.trim().length < 10) {
+                      error = 'Message must be at least 10 characters long';
+                    } else if (value.trim().length > 1000) {
+                      error = 'Message must be less than 1000 characters';
+                    }
+                  }
+
+                  if (error) {
+                    this.errors[field] = error;
+                  } else {
+                    delete this.errors[field];
+                  }
+
+                  return !error;
+                },
+
+                submitForm() {
+                  // Hide success message
+                  this.showSuccess = false;
+
+                  // Validate all fields
+                  const isNameValid = this.validateField('name');
+                  const isEmailValid = this.validateField('email');
+                  const isMessageValid = this.validateField('message');
+
+                  if (!isNameValid || !isEmailValid || !isMessageValid) {
+                    return;
+                  }
+
+                  // Form is valid - show success
+                  this.showSuccess = true;
+                  this.$refs.successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                  // Clear form
+                  this.formData = { name: '', email: '', message: '' };
+                  this.errors = {};
+
+                  // Hide success after 5 seconds
+                  setTimeout(() => {
+                    this.showSuccess = false;
+                  }, 5000);
+                }
+              }"
+              @submit.prevent="submitForm"
+            >
               <!-- Name Field -->
               <div>
                 <label
@@ -433,13 +543,18 @@
                   type="text"
                   id="name"
                   name="name"
-                  class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  x-model="formData.name"
+                  @blur="validateField('name')"
+                  @input="if (formData.name.trim().length >= 2) delete errors.name"
+                  :class="errors.name ? 'border-error-500' : 'border-border'"
+                  class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   placeholder="Your full name"
                   required
                 />
                 <p
-                  class="text-error-500 text-sm mt-1 hidden"
-                  data-error="name"
+                  x-show="errors.name"
+                  x-text="errors.name"
+                  class="text-error-500 text-sm mt-1"
                 ></p>
               </div>
 
@@ -455,13 +570,18 @@
                   type="email"
                   id="email"
                   name="email"
-                  class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  x-model="formData.email"
+                  @blur="validateField('email')"
+                  @input="if (validateEmail(formData.email.trim())) delete errors.email"
+                  :class="errors.email ? 'border-error-500' : 'border-border'"
+                  class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   placeholder="your.email@example.com"
                   required
                 />
                 <p
-                  class="text-error-500 text-sm mt-1 hidden"
-                  data-error="email"
+                  x-show="errors.email"
+                  x-text="errors.email"
+                  class="text-error-500 text-sm mt-1"
                 ></p>
               </div>
 
@@ -477,20 +597,26 @@
                   id="message"
                   name="message"
                   rows="6"
-                  class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-vertical"
+                  x-model="formData.message"
+                  @blur="validateField('message')"
+                  @input="if (formData.message.trim().length >= 10) delete errors.message"
+                  :class="errors.message ? 'border-error-500' : 'border-border'"
+                  class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-vertical"
                   placeholder="Tell us about your requirements..."
                   required
                 ></textarea>
                 <p
-                  class="text-error-500 text-sm mt-1 hidden"
-                  data-error="message"
+                  x-show="errors.message"
+                  x-text="errors.message"
+                  class="text-error-500 text-sm mt-1"
                 ></p>
               </div>
 
               <!-- Success Message -->
               <div
-                id="success-message"
-                class="hidden bg-success-100 border border-success-500 text-success-700 px-4 py-3 rounded-lg"
+                x-ref="successMessage"
+                x-show="showSuccess"
+                class="bg-success-100 border border-success-500 text-success-700 px-4 py-3 rounded-lg"
               >
                 <p class="font-medium">Thank you for contacting us!</p>
                 <p class="text-sm">

@@ -430,49 +430,73 @@
           </p>
         </div>
 
-        <!-- Parts Category Tabs -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12" data-parts-tabs>
-          <button
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-primary-600 text-white shadow-md"
-            data-parts-tab="all"
-          >
-            All Parts
-          </button>
-          <button
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-            data-parts-tab="cone"
-          >
-            Cone Crusher
-          </button>
-          <button
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-            data-parts-tab="jaw"
-          >
-            Jaw Crusher
-          </button>
-          <button
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-            data-parts-tab="impact"
-          >
-            Impact Crusher
-          </button>
-          <button
-            class="px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-surface text-text hover:bg-primary-50 border border-border"
-            data-parts-tab="screening"
-          >
-            Vibrating Screens
-          </button>
-        </div>
+        <!-- Parts Category Tabs (Alpine.js) -->
+        <div x-data="{
+          activeTab: 'all',
 
-        <!-- Spare Parts List -->
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          data-parts-grid
-        >
+          // Config: maps each part to its categories
+          partsConfig: {
+            'concave': ['cone'],
+            'mantle': ['cone'],
+            'jaw-plates': ['jaw'],
+            'vsi-parts': ['impact'],
+            'wire-meshes': ['screening'],
+            'plate-meshes': ['screening'],
+            'clamping-fasteners': ['screening'],
+            'rubber-bedding': ['screening']
+          },
+
+          // Check if part should be shown for active tab
+          shouldShow(partId) {
+            return this.activeTab === 'all' || this.partsConfig[partId]?.includes(this.activeTab)
+          }
+        }">
+          <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button
+              @click="activeTab = 'all'"
+              :class="activeTab === 'all' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              All Parts
+            </button>
+            <button
+              @click="activeTab = 'cone'"
+              :class="activeTab === 'cone' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Cone Crusher
+            </button>
+            <button
+              @click="activeTab = 'jaw'"
+              :class="activeTab === 'jaw' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Jaw Crusher
+            </button>
+            <button
+              @click="activeTab = 'impact'"
+              :class="activeTab === 'impact' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Impact Crusher
+            </button>
+            <button
+              @click="activeTab = 'screening'"
+              :class="activeTab === 'screening' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Vibrating Screens
+            </button>
+          </div>
+
+          <!-- Spare Parts List -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Part 1: Concave -->
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="cone"
+            data-part-id="concave"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/concave.png"
@@ -505,6 +529,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="cone"
+            data-part-id="mantle"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/mantle.png"
@@ -537,6 +563,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="jaw"
+            data-part-id="jaw-plates"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/jaw_plates.png"
@@ -570,6 +598,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="impact"
+            data-part-id="vsi-parts"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/vsi_parts.png"
@@ -602,6 +632,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="screening"
+            data-part-id="wire-meshes"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/wire_mesh.png"
@@ -634,6 +666,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="screening"
+            data-part-id="plate-meshes"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/plate_mesh.jpg"
@@ -667,6 +701,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="screening"
+            data-part-id="clamping-fasteners"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/wire_mesh_clamping_fasteners.png"
@@ -702,6 +738,8 @@
           <div
             class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
             data-category="screening"
+            data-part-id="rubber-bedding"
+            x-show="shouldShow($el.dataset.partId)"
           >
             <img
               src="/images/rubber_bedding.webp"
@@ -730,6 +768,7 @@
               </a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
