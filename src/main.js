@@ -165,14 +165,17 @@ function initSmoothScroll() {
       if (target) {
         e.preventDefault();
 
-        // Calculate nav height offset
-        const nav = document.querySelector("nav");
-        const navHeight = nav ? nav.offsetHeight : 0;
-        const targetPosition = target.offsetTop - navHeight;
+        // Use requestAnimationFrame to defer layout access until next frame
+        requestAnimationFrame(() => {
+          // Calculate nav height offset
+          const nav = document.querySelector("nav");
+          const navHeight = nav ? nav.offsetHeight : 0;
+          const targetPosition = target.offsetTop - navHeight;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
         });
 
         // Close mobile menu if open
