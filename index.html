@@ -407,7 +407,7 @@
     <section class="relative md:h-[calc(100vh-80px)] overflow-hidden">
       <!-- Hero Slider Background -->
       <div class="absolute inset-0 z-0">
-        <div class="swiper h-full" data-hero-slider>
+        <div class="swiper h-full" data-hero-slider x-data="swiperHero()">
           <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide h-full relative">
@@ -756,7 +756,7 @@
         <!-- Products Slider -->
         <div class="relative">
           <!-- Slider Container -->
-          <div class="swiper overflow-hidden" data-products-slider>
+          <div class="swiper overflow-hidden" data-products-slider x-data="swiperProduct()">
             <div class="swiper-wrapper">
               <!-- 1. Jaw Crusher -->
               <div class="swiper-slide px-4">

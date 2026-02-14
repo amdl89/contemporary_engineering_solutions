@@ -1,12 +1,96 @@
 // Import Alpine.js
 import Alpine from "alpinejs";
 
-// Import Swiper initialization functions
-import {
-  initHeroSlider as initHeroSwiperSlider,
-  initProductSlider as initProductSwiperSlider,
-  initProductPageSlider as initProductPageSwiperSlider,
-} from "./swiper-init.js";
+// Import core Alpine components
+import { createFilter, createSlider } from "./alpine-components.js";
+
+// Import Swiper modules for presets
+import { Navigation, Autoplay } from "swiper/modules";
+
+// ============================================
+// SLIDER PRESETS
+// ============================================
+
+/**
+ * Hero slider preset
+ * Auto-play 4s, loop, no navigation
+ */
+const swiperHero = () =>
+  createSlider(
+    {
+      modules: [Autoplay],
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      speed: 700,
+      effect: "slide",
+    },
+    "hero-slider",
+  );
+
+/**
+ * Product grid slider preset
+ * Responsive: 1/2/3 slides, navigation, auto-play 5s
+ */
+const swiperProduct = () =>
+  createSlider(
+    {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 500,
+      navigation: {
+        nextEl: "[data-slider-next]",
+        prevEl: "[data-slider-prev]",
+      },
+      breakpoints: {
+        640: { slidesPerView: 1, spaceBetween: 16 },
+        768: { slidesPerView: 2, spaceBetween: 16 },
+        1024: { slidesPerView: 3, spaceBetween: 16 },
+      },
+    },
+    "products-slider",
+  );
+
+/**
+ * Product page slider preset
+ * Single slide, navigation, auto-play 4s, loop
+ */
+const swiperProductPage = () =>
+  createSlider(
+    {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      speed: 700,
+      navigation: {
+        nextEl: "[data-product-next]",
+        prevEl: "[data-product-prev]",
+      },
+    },
+    "product-slider",
+  );
+
+// Core components
+window.createFilter = createFilter;
+window.createSlider = createSlider;
+
+// Slider presets
+window.swiperHero = swiperHero;
+window.swiperProduct = swiperProduct;
+window.swiperProductPage = swiperProductPage;
 
 // Initialize Alpine.js
 window.Alpine = Alpine;
@@ -148,10 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // CSS handles smooth scrolling, this handles what CSS can't do
   initSmoothScroll();
 
-  // Swiper.js sliders
-  initHeroSwiperSlider();
-  initProductSwiperSlider();
-  initProductPageSwiperSlider();
+  // Swiper.js sliders are now initialized via Alpine.js x-data components
+  // (no manual initialization needed)
 
   // Scroll animations (Intersection Observer)
   initScrollAnimations();

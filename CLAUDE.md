@@ -337,6 +337,76 @@ x-data="{
 <p x-show="errors.name" x-text="errors.name"></p>
 ```
 
+### Alpine.js Reusable Components
+
+Reusable Alpine.js components are defined in `src/alpine-components.js`. These eliminate code duplication and provide consistent patterns across pages.
+
+**createFilter(itemsConfig, initialFilter)**
+
+Config-based filtering component for tabs/categories. Eliminates duplicated filter logic.
+
+```javascript
+// Usage in HTML
+x-data="createFilter({
+  'item-1': ['category-a', 'category-b'],
+  'item-2': ['category-a']
+})"
+
+// In your HTML elements
+<button @click="activeFilter = 'all'">All</button>
+<button @click="activeFilter = 'category-a'">Category A</button>
+<div data-item-id="item-1" x-show="shouldShow($el.dataset.itemId)">Item 1</div>
+```
+
+Used in: `pages/spare-parts-services.html`, `pages/lubricants.html`
+
+**Swiper Components**
+
+Reusable slider component with preset configurations. All sliders use a single generic `slider()` component with different configs.
+
+**Generic Component:**
+- **slider(config, selector)** - Generic Swiper component, takes any Swiper config object
+
+**Presets** (convenience wrappers around the generic slider):
+- **swiperHero()** - Hero slider (auto-play 4s, loop, no navigation)
+- **swiperProduct()** - Product grid slider (responsive: 1/2/3 slides, navigation, auto-play 5s)
+- **swiperProductPage()** - Product page slider (single slide, navigation, auto-play 4s, loop)
+
+```html
+<!-- Using Presets (Recommended) -->
+<div data-hero-slider class="swiper" x-data="swiperHero()">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide content</div>
+  </div>
+</div>
+
+<div data-products-slider class="swiper" x-data="swiperProduct()">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Product card</div>
+  </div>
+  <button data-slider-prev>←</button>
+  <button data-slider-next>→</button>
+</div>
+
+<!-- Using Generic Component (Custom Configs) -->
+<div class="swiper" x-data="slider({
+  slidesPerView: 2,
+  loop: true,
+  autoplay: { delay: 3000 }
+})">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Custom slide</div>
+  </div>
+</div>
+```
+
+**Architecture**:
+- Factory functions exported from `src/alpine-components.js`
+- Exposed globally via `window` in `main.js`
+- No Alpine.data registration needed - Alpine picks up component objects automatically
+- Single reusable `createSlider()` base - all presets use it (DRY principle)
+- Same pattern as `createFilter()` - consistent API across all components
+
 ### Swiper.js Patterns
 
 **Hero Slider**

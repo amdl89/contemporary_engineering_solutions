@@ -439,25 +439,15 @@
           </p>
         </div>
 
-        <!-- Equipment Filter Tabs (Alpine.js) -->
-        <div x-data="{
-          activeFilter: 'all',
-
-          // Config: maps each product to its compatible equipment
-          productsConfig: {
-            'mosil-gm-00-sp2': ['jaw-crusher', 'cone-crusher', 'vibrating-screen', 'conveyor'],
-            'mosil-gear-lube-sp-150e': ['cone-crusher'],
-            'mosil-gear-lube-sp-220e': ['cone-crusher'],
-            'mosil-brb-400': ['cone-crusher'],
-            'mosil-ml-110-premium': ['impactors'],
-            'mosil-gear-lube-sp-320e': ['conveyor']
-          },
-
-          // Check if product should be shown for active filter
-          shouldShow(productId) {
-            return this.activeFilter === 'all' || this.productsConfig[productId]?.includes(this.activeFilter)
-          }
-        }">
+        <!-- Equipment Filter Tabs (Alpine.js with createFilter component) -->
+        <div x-data="createFilter({
+          'mosil-gm-00-sp2': ['jaw-crusher', 'cone-crusher', 'vibrating-screen', 'conveyor'],
+          'mosil-gear-lube-sp-150e': ['cone-crusher'],
+          'mosil-gear-lube-sp-220e': ['cone-crusher'],
+          'mosil-brb-400': ['cone-crusher'],
+          'mosil-ml-110-premium': ['impactors'],
+          'mosil-gear-lube-sp-320e': ['conveyor']
+        })">
           <nav
             class="flex flex-wrap justify-center gap-3 mb-12"
             aria-label="Filter lubricants by equipment type"
