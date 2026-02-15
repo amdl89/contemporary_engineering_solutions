@@ -320,7 +320,11 @@
                 />
               </svg>
             </button>
-            <div id="mobile-products-menu" class="hidden pl-4 mt-2" data-mobile-dropdown-menu>
+            <div
+              id="mobile-products-menu"
+              class="hidden pl-4 mt-2"
+              data-mobile-dropdown-menu
+            >
               <a
                 href="/pages/jaw-crusher.html"
                 class="block px-3 py-2 text-sm text-text-muted hover:bg-primary-50 rounded-md transition-colors"
@@ -359,7 +363,7 @@
               </a>
               <a
                 href="/pages/bucket-classifier.html"
-                class="block px-4 py-2 text-base text-text hover:bg-primary-50 transition-colors"
+                class="block px-3 py-2 text-sm text-text-muted hover:bg-primary-50 rounded-md transition-colors"
               >
                 Bucket Classifier
               </a>
@@ -441,7 +445,8 @@
         </div>
 
         <!-- Parts Category Tabs (Alpine.js with createFilter component) -->
-        <div x-data="createFilter({
+        <div
+          x-data="createFilter({
           'concave': ['cone'],
           'mantle': ['cone'],
           'jaw-plates': ['jaw'],
@@ -450,7 +455,8 @@
           'plate-meshes': ['screening'],
           'clamping-fasteners': ['screening'],
           'rubber-bedding': ['screening']
-        })">
+        })"
+        >
           <div class="flex flex-wrap justify-center gap-3 mb-12">
             <button
               @click="activeFilter = 'all'"
@@ -491,284 +497,285 @@
 
           <!-- Spare Parts List -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Part 1: Concave -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="cone"
-            data-part-id="concave"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/concave.png"
-              alt="Cone crusher concave bowl liner"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Concave</h3>
-                <span
-                  class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Premium Grade</span
+            <!-- Part 1: Concave -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="cone"
+              data-part-id="concave"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/concave.png"
+                alt="Cone crusher concave bowl liner"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Concave</h3>
+                  <span
+                    class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Premium Grade</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  High-manganese steel concaves designed for extended wear life.
+                  Available for cone crushers of all sizes. Superior crushing
+                  efficiency and consistent product gradation.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-concave"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                High-manganese steel concaves designed for extended wear life.
-                Available for cone crushers of all sizes. Superior crushing
-                efficiency and consistent product gradation.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-concave"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 2: Mantle -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="cone"
-            data-part-id="mantle"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/mantle.png"
-              alt="Cone crusher mantle wear part"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Mantle</h3>
-                <span
-                  class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >High Performance</span
+            <!-- Part 2: Mantle -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="cone"
+              data-part-id="mantle"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/mantle.png"
+                alt="Cone crusher mantle wear part"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Mantle</h3>
+                  <span
+                    class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >High Performance</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Precision-engineered mantles for optimal fit and crushing
+                  action. Heat-treated manganese steel construction ensures
+                  maximum abrasion resistance and longer service intervals.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-mantle"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                Precision-engineered mantles for optimal fit and crushing
-                action. Heat-treated manganese steel construction ensures
-                maximum abrasion resistance and longer service intervals.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-mantle"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 3: Jaw Plates -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="jaw"
-            data-part-id="jaw-plates"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/jaw_plates.png"
-              alt="Jaw crusher manganese jaw plates"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Jaw Plates</h3>
-                <span
-                  class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Durable</span
+            <!-- Part 3: Jaw Plates -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="jaw"
+              data-part-id="jaw-plates"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/jaw_plates.png"
+                alt="Jaw crusher manganese jaw plates"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Jaw Plates</h3>
+                  <span
+                    class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Durable</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Heavy-duty jaw plates for primary and secondary crushers.
+                  Manganese steel alloy with optimized tooth profiles for
+                  aggressive crushing. Extends wear life and reduces replacement
+                  frequency.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-jaw-plates"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                Heavy-duty jaw plates for primary and secondary crushers.
-                Manganese steel alloy with optimized tooth profiles for
-                aggressive crushing. Extends wear life and reduces replacement
-                frequency.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-jaw-plates"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 4: VSI Parts -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="impact"
-            data-part-id="vsi-parts"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/vsi_parts.png"
-              alt="VSI crusher rotor tips and wear parts"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">VSI Parts</h3>
-                <span
-                  class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Advanced</span
+            <!-- Part 4: VSI Parts -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="impact"
+              data-part-id="vsi-parts"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/vsi_parts.png"
+                alt="VSI crusher rotor tips and wear parts"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">VSI Parts</h3>
+                  <span
+                    class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Advanced</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Vertical Shaft Impactor components including rotor tips,
+                  anvils, and wear plates. Premium materials for superior
+                  cubical product shape. Maximize throughput and minimize
+                  operating costs.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-vsi"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                Vertical Shaft Impactor components including rotor tips, anvils,
-                and wear plates. Premium materials for superior cubical product
-                shape. Maximize throughput and minimize operating costs.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-vsi"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 5: Wire Meshes -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="screening"
-            data-part-id="wire-meshes"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/wire_mesh.png"
-              alt="Wire mesh screening media for vibrating screens"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Wire Meshes</h3>
-                <span
-                  class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Heavy Duty</span
+            <!-- Part 5: Wire Meshes -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="screening"
+              data-part-id="wire-meshes"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/wire_mesh.png"
+                alt="Wire mesh screening media for vibrating screens"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Wire Meshes</h3>
+                  <span
+                    class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Heavy Duty</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  High-tensile screening media for vibrating screens and grizzly
+                  feeders. Various aperture sizes from 2mm to 150mm. Crimped and
+                  woven designs for optimal material flow and classification.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-wire-mesh"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                High-tensile screening media for vibrating screens and grizzly
-                feeders. Various aperture sizes from 2mm to 150mm. Crimped and
-                woven designs for optimal material flow and classification.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-wire-mesh"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 6: Plate Meshes -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="screening"
-            data-part-id="plate-meshes"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/plate_mesh.jpg"
-              alt="Plate mesh screening media for heavy-duty applications"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Plate Meshes</h3>
-                <span
-                  class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Abrasion Resistant</span
+            <!-- Part 6: Plate Meshes -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="screening"
+              data-part-id="plate-meshes"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/plate_mesh.jpg"
+                alt="Plate mesh screening media for heavy-duty applications"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Plate Meshes</h3>
+                  <span
+                    class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Abrasion Resistant</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Heavy-duty perforated plate screening media for demanding
+                  applications. Superior wear resistance for abrasive materials.
+                  Available in various hole patterns and plate thicknesses for
+                  optimal screening efficiency.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-plate-mesh"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                Heavy-duty perforated plate screening media for demanding
-                applications. Superior wear resistance for abrasive materials.
-                Available in various hole patterns and plate thicknesses for
-                optimal screening efficiency.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-plate-mesh"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 7: Wire Mesh Clamping Fasteners -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="screening"
-            data-part-id="clamping-fasteners"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/wire_mesh_clamping_fasteners.png"
-              alt="Wire mesh clamping fasteners and hooks for vibrating screens"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">
-                  Wire Mesh Clamping Fasteners
-                </h3>
-                <span
-                  class="bg-success-100 text-success-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Essential</span
+            <!-- Part 7: Wire Mesh Clamping Fasteners -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="screening"
+              data-part-id="clamping-fasteners"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/wire_mesh_clamping_fasteners.png"
+                alt="Wire mesh clamping fasteners and hooks for vibrating screens"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">
+                    Wire Mesh Clamping Fasteners
+                  </h3>
+                  <span
+                    class="bg-success-100 text-success-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Essential</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Galvanized or stainless steel clamping hooks that hold wire
+                  mesh drum-tight during operation. Ensures proper tensioning
+                  and extends screen life. Available in various configurations
+                  for different screen models and mesh types.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-clamping-fasteners"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                Galvanized or stainless steel clamping hooks that hold wire mesh
-                drum-tight during operation. Ensures proper tensioning and
-                extends screen life. Available in various configurations for
-                different screen models and mesh types.
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-clamping-fasteners"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
-          </div>
 
-          <!-- Part 8: Rubber Bedding -->
-          <div
-            class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
-            data-category="screening"
-            data-part-id="rubber-bedding"
-            x-show="shouldShow($el.dataset.partId)"
-          >
-            <img
-              src="/images/rubber_bedding.webp"
-              alt="EPDM rubber bedding for vibrating screen protection"
-              class="w-full aspect-square object-contain bg-gray-50 p-2"
-            />
-            <div class="p-6 flex-1 flex flex-col">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-2xl font-bold text-text">Rubber Bedding</h3>
-                <span
-                  class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
-                  >Vibration Dampening</span
+            <!-- Part 8: Rubber Bedding -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="screening"
+              data-part-id="rubber-bedding"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/rubber_bedding.webp"
+                alt="EPDM rubber bedding for vibrating screen protection"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Rubber Bedding</h3>
+                  <span
+                    class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Vibration Dampening</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  EPDM rubber beading for vibration dampening and noise
+                  reduction. Protects screen panels from wear and extends
+                  lifespan. Weather-resistant and flexible for tight sealing.
+                  Available in various widths (7-15mm) and heights (33-53mm).
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-rubber-bedding"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
+                  Request Quote
+                </a>
               </div>
-              <p class="text-text-muted leading-relaxed mb-4 flex-1">
-                EPDM rubber beading for vibration dampening and noise reduction.
-                Protects screen panels from wear and extends lifespan.
-                Weather-resistant and flexible for tight sealing. Available in
-                various widths (7-15mm) and heights (33-53mm).
-              </p>
-              <a
-                href="/pages/contact.html?source=spare-rubber-bedding"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-              >
-                Request Quote
-              </a>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
