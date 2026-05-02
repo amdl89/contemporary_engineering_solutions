@@ -454,7 +454,17 @@
           'wire-meshes': ['screening'],
           'plate-meshes': ['screening'],
           'clamping-fasteners': ['screening'],
-          'rubber-bedding': ['screening']
+          'rubber-bedding': ['screening'],
+          'springs': ['screening'],
+          'conveyor-belts': ['conveyor'],
+          'rollers': ['conveyor'],
+          'gearbox': ['conveyor'],
+          'pulley': ['conveyor'],
+          'online-belt-rock-scale': ['others'],
+          'fogg-cannon-dust-suppression': ['others'],
+          'metal-detector': ['others'],
+          'permanent-suspension-magnet': ['others'],
+          'v-belts': ['others']
         })"
         >
           <div class="flex flex-wrap justify-center gap-3 mb-12">
@@ -492,6 +502,20 @@
               class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
             >
               Vibrating Screens
+            </button>
+            <button
+              @click="activeFilter = 'conveyor'"
+              :class="activeFilter === 'conveyor' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Conveyors
+            </button>
+            <button
+              @click="activeFilter = 'others'"
+              :class="activeFilter === 'others' ? 'bg-primary-600 text-white shadow-md' : 'bg-surface text-text hover:bg-primary-50 border border-border'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            >
+              Others
             </button>
           </div>
 
@@ -769,6 +793,355 @@
                 </p>
                 <a
                   href="/pages/contact.html?source=spare-rubber-bedding"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 9: Springs -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="screening"
+              data-part-id="springs"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/spring.png"
+                alt="Vibrating screen suspension springs"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Springs</h3>
+                  <span
+                    class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Heavy Duty</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  High-performance coil springs for vibrating screen suspension
+                  systems. Engineered for consistent load bearing and vibration
+                  isolation, reducing structural fatigue and extending screen
+                  frame life.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-springs"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 10: Conveyor Belts -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="conveyor"
+              data-part-id="conveyor-belts"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/conveyor_belt.png"
+                alt="Conveyor belts for quarry and mining applications"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Conveyor Belts</h3>
+                  <span
+                    class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Multi-Width</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Heavy-duty rubber conveyor belts for bulk material transport
+                  in quarrying and mining operations. Available in widths of
+                  400mm, 500mm, 600mm, 650mm, 700mm, 800mm, and 1000mm for a
+                  wide range of conveyor configurations.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-conveyor-belts"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 11: Rollers -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="conveyor"
+              data-part-id="rollers"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/rollers.jpg"
+                alt="Conveyor rollers - carrying, impact, and return"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Rollers</h3>
+                  <span
+                    class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >All Types</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Complete range of conveyor rollers for all belt positions.
+                  Available variants include Carrying roller, Impact roller, and
+                  Return roller — engineered for low friction, long service
+                  life, and minimal maintenance.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-rollers"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 12: Gearbox -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="conveyor"
+              data-part-id="gearbox"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/gear_box.jpg"
+                alt="Conveyor drive gearbox"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Gearbox</h3>
+                  <span
+                    class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >High Torque</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Heavy-duty conveyor drive gearboxes designed for reliable
+                  power transmission in demanding bulk material handling
+                  environments. Built for sustained high-torque operation with
+                  minimal downtime.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-gearbox"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 13: Pulley -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="conveyor"
+              data-part-id="pulley"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/pulley.png"
+                alt="Conveyor drive and tail pulley"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Pulley</h3>
+                  <span
+                    class="bg-accent-gold-100 text-accent-gold-800 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Drive &amp; Tail</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Precision-balanced conveyor pulleys for drive, tail, snub,
+                  and bend positions. Rubber-lagged options available for
+                  improved belt grip and reduced slippage under heavy loads.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-pulley"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 14: Online Belt Rock Scale -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="others"
+              data-part-id="online-belt-rock-scale"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/online_belt_rock_scale.jpg"
+                alt="Online belt rock scale for conveyor weighing"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Online Belt Rock Scale</h3>
+                  <span
+                    class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Measurement</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Real-time belt weighing system for accurate tonnage
+                  measurement on moving conveyors. Provides continuous
+                  production data to support inventory management and process
+                  optimization.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-online-belt-rock-scale"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 15: Fogg-Cannon Dust Suppression System -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="others"
+              data-part-id="fogg-cannon-dust-suppression"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/fogg-cannon.png"
+                alt="Fogg-Cannon dust suppression system for quarry operations"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Fogg-Cannon Dust Suppression System</h3>
+                  <span
+                    class="bg-success-100 text-success-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Environmental</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  High-pressure atomizing dust suppression cannons for
+                  effective airborne dust control at crushing, screening, and
+                  transfer points. Reduces respirable dust levels to meet
+                  environmental and health regulations.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-fogg-cannon-dust-suppression"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 16: Metal Detector -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="others"
+              data-part-id="metal-detector"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/metal_detector.jpg"
+                alt="Conveyor belt metal detector for tramp iron detection"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Metal Detector</h3>
+                  <span
+                    class="bg-warning-100 text-warning-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Protection</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Industrial conveyor belt metal detectors for reliable
+                  detection of tramp iron and ferrous contaminants. Protects
+                  crushers and downstream equipment from costly damage caused
+                  by metallic foreign objects.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-metal-detector"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 17: Permanent Suspension Magnet -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="others"
+              data-part-id="permanent-suspension-magnet"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/magnet.png"
+                alt="Permanent suspension magnet for conveyor belt tramp iron removal"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">Permanent Suspension Magnet</h3>
+                  <span
+                    class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Tramp Removal</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Permanent overhead suspension magnets for automatic removal
+                  of tramp iron from conveyor belts. Maintenance-free operation
+                  with no power supply required, ensuring continuous protection
+                  of crushers and processing equipment.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-permanent-suspension-magnet"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+                >
+                  Request Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Part 18: V-Belts -->
+            <div
+              class="bg-surface border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col slide-up-scroll"
+              data-category="others"
+              data-part-id="v-belts"
+              x-show="shouldShow($el.dataset.partId)"
+            >
+              <img
+                src="/images/v_belt.png"
+                alt="V-belts for crusher and conveyor drives"
+                class="w-full aspect-square object-contain bg-gray-50 p-2"
+              />
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-2xl font-bold text-text">V-Belts</h3>
+                  <span
+                    class="bg-accent-teal-100 text-accent-teal-700 text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap"
+                    >Power Transmission</span
+                  >
+                </div>
+                <p class="text-text-muted leading-relaxed mb-4 flex-1">
+                  Industrial V-belts for crusher drives, conveyor motors, and
+                  ancillary equipment. Oil- and heat-resistant compounds with
+                  high tensile cord construction for reliable power
+                  transmission under heavy loads.
+                </p>
+                <a
+                  href="/pages/contact.html?source=spare-v-belts"
                   class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
                 >
                   Request Quote

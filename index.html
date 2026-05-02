@@ -413,7 +413,7 @@
             <!-- Slide 1 -->
             <div class="swiper-slide h-full relative">
               <img
-                src="/images/hero_1.jpg"
+                src="/images/hero_1.png"
                 alt="Industrial crusher plant facility"
                 class="w-full h-full object-cover brightness-75"
                 fetchpriority="high"
@@ -422,18 +422,8 @@
             <!-- Slide 2 -->
             <div class="swiper-slide h-full relative">
               <img
-                src="/images/hero_2.jpg"
+                src="/images/hero_2.png"
                 alt="Heavy machinery and crusher equipment in operation"
-                class="w-full h-full object-cover brightness-75"
-                loading="lazy"
-                fetchpriority="low"
-              />
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide h-full relative">
-              <img
-                src="/images/hero_3.jpg"
-                alt="Quarry and stone processing facility"
                 class="w-full h-full object-cover brightness-75"
                 loading="lazy"
                 fetchpriority="low"
@@ -757,7 +747,11 @@
         <!-- Products Slider -->
         <div class="relative">
           <!-- Slider Container -->
-          <div class="swiper overflow-hidden" data-products-slider x-data="swiperProduct()">
+          <div
+            class="swiper overflow-hidden"
+            data-products-slider
+            x-data="swiperProduct()"
+          >
             <div class="swiper-wrapper">
               <!-- 1. Jaw Crusher -->
               <div class="swiper-slide px-4">
@@ -766,7 +760,7 @@
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
                   <img
-                    src="/images/jaw_crusher.jpg"
+                    src="/images/Jaw_crusher.jpg"
                     alt="Jaw Crusher - Primary crushing equipment for hard rock and ore"
                     class="w-full h-64 object-contain"
                     loading="lazy"
@@ -803,7 +797,7 @@
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
                   <img
-                    src="/images/cone_crusher.png"
+                    src="/images/cone_cruhser.JPG"
                     alt="Cone Crusher - Secondary and tertiary crushing equipment"
                     class="w-full h-64 object-contain"
                     loading="lazy"
@@ -839,7 +833,7 @@
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
                   <img
-                    src="/images/vibrating_screen.jpg"
+                    src="/images/Vibrating_Screen.jpg"
                     alt="Vibrating Screen - Material separation and classification equipment"
                     class="w-full h-64 object-contain"
                     loading="lazy"
@@ -874,23 +868,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-primary-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <circle cx="12" cy="12" r="9" />
-                      <path
-                        d="M12 3v18M12 3c-1 3-2 6-3 9M12 3c1 3 2 6 3 9M3 12h18"
-                      />
-                      <path d="M6 15l3-3 3 3M15 15l3-3" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/Vsi_Crusher.jpg"
+                    alt="Vertical Shaft Impactor - High-speed crusher for cubical aggregate"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
@@ -920,24 +904,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-accent-teal-50 to-accent-teal-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-accent-teal-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <rect x="2" y="8" width="20" height="8" rx="2" />
-                      <path d="M7 8V6M12 8V6M17 8V6M7 16v2M12 16v2M17 16v2" />
-                      <path d="M2 12h20" stroke-width="2" />
-                      <circle cx="6" cy="12" r="1.5" fill="currentColor" />
-                      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                      <circle cx="18" cy="12" r="1.5" fill="currentColor" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/HSI.png"
+                    alt="Horizontal Shaft Impactor - Heavy-duty impact crusher for recycling and aggregate"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
@@ -967,22 +940,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-secondary-50 to-secondary-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-secondary-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <circle cx="8" cy="12" r="6" />
-                      <circle cx="16" cy="12" r="6" />
-                      <path d="M8 6v12M16 6v12" />
-                      <path d="M3 9l2 3-2 3M21 9l-2 3 2 3" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/Roll_Crusher.png"
+                    alt="Roll Crusher - Low-power compression crusher for soft to medium-hard materials"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
@@ -1012,26 +976,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-primary-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M4 20h16" />
-                      <path
-                        d="M6 20V8c0-2 1-3 2-4 1-1 2-1.5 4-1.5s3 .5 4 1.5c1 1 2 2 2 4v12"
-                      />
-                      <circle cx="12" cy="6" r="1" fill="currentColor" />
-                      <circle cx="12" cy="10" r="1" fill="currentColor" />
-                      <circle cx="12" cy="14" r="1" fill="currentColor" />
-                      <circle cx="12" cy="18" r="1" fill="currentColor" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/Bucket_classifier.png"
+                    alt="Bucket Classifier - Gravity separation for coarse and fine particle classification"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
@@ -1061,23 +1012,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-accent-teal-50 to-accent-teal-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-accent-teal-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M12 2L8 8h8l-4-6z" />
-                      <path d="M8 8v4l-3 8h14l-3-8V8" />
-                      <path d="M12 16v4" />
-                      <circle cx="12" cy="12" r="2" />
-                      <path d="M10 10c1-1 3-1 4 0" stroke-width="1" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/Hydro_Cyclone.jpg"
+                    alt="Hydro Cyclone - Centrifugal separator for fine particle classification"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
@@ -1107,22 +1048,13 @@
                 <div
                   class="bg-surface rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col"
                 >
-                  <div
-                    class="w-full h-64 bg-gradient-to-br from-secondary-50 to-secondary-100 flex items-center justify-center"
-                  >
-                    <svg
-                      class="h-32 w-32 text-secondary-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M4 18h16M4 18v-2M20 18v-2" />
-                      <path d="M6 16V8l2-2 2 2 2-2 2 2 2-2v8" />
-                      <path d="M6 10h12M6 13h12" />
-                      <rect x="4" y="6" width="16" height="2" rx="1" />
-                    </svg>
-                  </div>
+                  <img
+                    src="/images/Screw_classifier.png"
+                    alt="Screw Classifier - Mechanical classifier for sand washing and dewatering"
+                    class="w-full h-64 object-contain"
+                    loading="lazy"
+                    fetchpriority="low"
+                  />
                   <div class="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <h3 class="text-xl font-bold text-text mb-2">
